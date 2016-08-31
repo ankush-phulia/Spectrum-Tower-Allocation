@@ -1,13 +1,17 @@
 
 #include <iostream>
+#include <unordered_map>
 #include <unordered_set>
 #include <fstream>
+#include <vector>
+#include <cstdlib>
+
 
 struct Bid
 {
 	int Bid_Id;
 	int Company;
-	float Price;
+	double Price;
 	std::unordered_set<int> Regions;
 };
 
