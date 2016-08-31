@@ -1,10 +1,11 @@
-
 #include <iostream>
 #include <unordered_map>
 #include <unordered_set>
 #include <fstream>
 #include <vector>
 #include <cstdlib>
+#include <algorithm>
+#include <random>
 
 
 struct Bid
@@ -12,7 +13,7 @@ struct Bid
 	int Bid_Id;
 	int Company;
 	double Price;
-	std::unordered_set<int> Regions;
+	std::ordered_set<int> Regions;
 };
 
 struct State
