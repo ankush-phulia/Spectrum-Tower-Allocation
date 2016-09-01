@@ -18,15 +18,21 @@ struct Bid
     int Company;
     double Price;
     std::set<int> Regions;
+
+    //to compare based on price
+    bool operator < (const Bid& str) const{
+        return (Price/Regions.size()) >= (str.Price/str.Regions.size());
+    }
+
 };
 
 struct State
 {
-    std::vector<Bid> Company_Bid;
-    std::unordered_map<int, int> Regions;
+//    std::set<int> Bid_ids;
+    int Pofit;
+    std::vector<int> Bids_Company;   // size = C
+    std::vector<int> Regions_assigned;  // size = M
 };
-
-
 
 //  Array of vector(unordered map) of bids Company -> Set of Bids. GLOBAL CONST
 
