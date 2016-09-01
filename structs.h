@@ -36,4 +36,4 @@ struct State
 
 //  Array of vector(unordered map) of bids Company -> Set of Bids. GLOBAL CONST
 
-#endif // STRUCTS_H
+#endif

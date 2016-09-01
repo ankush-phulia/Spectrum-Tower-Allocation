@@ -29,22 +29,27 @@ double Time;
 //    return maxcomp;
 //}
 
-// global sortd array of bids.
+// global sorted array of bids.
 
 
 
-std::vector<int> checkClashBidwithState(Bid b,State &s){
-//    returns list of bids in state with which b clashes. TODO:ADITI
-//    int numberofRegionsB = b.Regions.size();
-//    int numberofRegionsS = s.Regions.size();
-
-//    std::vector<int> regIntersection(numberofRegionsB+numberofRegionsS);
-//    std::vector<int>::iterator it;
-//    it=std::set_intersection (b.Regions.begin(), b.Regions.end(), s.Regions.begin(), s.Regions.end(), regIntersection.begin());
-
-//    regIntersection.resize(it-regIntersection.begin());
-
-//    return regIntersection.size() == 0;
+std::pair<int,std::unordered_set<int> >  checkClashBidwithState(Bid b,State &s)
+{
+//    returns list of bids in state with which b clashes + total cost of clsshing bids.
+	std::set<int> bid_regs = b.Regions;
+	std::unordered_set<int> bids_clashing;
+	int clash_cost = 0;
+	for (auto it = bid_regs.begin() ; it != bid_regs.end() ; it ++)
+	{
+		int reg = *it;
+		int bid_state = s.Regions_assigned[reg];
+		if (bid_state != -1 && bids_clashing.find(bid_state) == bids_clashing.end())
+		{
+			bids_clashing.insert(bid_state);
+			clash_cost += allBids[bid_state].Price;			
+		}
+	}
+	return std::make_pair(clash_cost, bids_clashing);
 }
 
 
