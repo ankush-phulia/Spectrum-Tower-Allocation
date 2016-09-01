@@ -1,7 +1,7 @@
 #include "structs.h"
 
 // NOT NEEDED?
-typedef std::vector<std::set<Bid> > Vec_of_Maps;
+typedef std::vector<std::set<int> > Vec_of_Maps;   // company to set of Bid IDs.
 Vec_of_Maps Company_Bids;
 std::vector<Bid> allBids;
 std::vector<Bid> Sorted_Bids;
@@ -79,7 +79,7 @@ int main(){
         f_in >> M >> B >> C;
         std::cout << M << " " <<  B << " " << C << std::endl;
         //std::unordered_map<int, Bid> X;
-        Company_Bids = std::vector<std::unordered_map<int, Bid> > (C);
+        Company_Bids = std::vector<std::set<int> > (C);
         allBids = std::vector<Bid> (B);
         Sorted_Bids = std::vector<Bid> (B);
 
@@ -106,7 +106,7 @@ int main(){
                 f_in >> region;
             }
             xi.Regions = regs;
-            Company_Bids[comp_i].insert(xi);
+            Company_Bids[comp_i].insert(i);
             allBids[i] = xi;
             Sorted_Bids[i] = xi;
         }

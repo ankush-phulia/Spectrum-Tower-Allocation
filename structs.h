@@ -29,7 +29,7 @@ struct Bid
 struct State
 {
 //    std::set<int> Bid_ids;
-    int Pofit;
+    int Profit;
     std::vector<int> Bids_Company;   // size = C
     std::vector<int> Regions_assigned;  // size = M
 };
