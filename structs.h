@@ -11,6 +11,7 @@
 #include <random>
 #include <map>
 #include <set>
+#include <functional>
 
 struct Bid{
     int Bid_Id;

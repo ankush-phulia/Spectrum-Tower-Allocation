@@ -1,14 +1,12 @@
 #include "structs.h"
 
 // NOT NEEDED?
-typedef std::vector<std::set<int> > Vec_of_Maps;   // company to set of Bid IDs.
+typedef std::vector<std::set<Bid> > Vec_of_Maps;   // company to set of Bid IDs.
 Vec_of_Maps Company_Bids;
-std::vector<Bid> allBids;
+std::vector<std::reference_wrapper<Bid> > allBids;
 std::vector<Bid> Sorted_Bids;
 int Start;
 double Time;
-
-
 
 //int getCompanyWithMostBids(Vec_of_Maps Company_Bids, int C){
 //    int maxbids = 0;
@@ -46,7 +44,7 @@ std::pair<int,std::unordered_set<int> >  checkClashBidwithState(Bid b,State &s)
 		if (bid_state != -1 && bids_clashing.find(bid_state) == bids_clashing.end())
 		{
 			bids_clashing.insert(bid_state);
-			clash_cost += allBids[bid_state].Price;			
+            clash_cost += (allBids[bid_state]).get().Price;
 		}
 	}
 	return std::make_pair(clash_cost, bids_clashing);
@@ -55,7 +53,7 @@ std::pair<int,std::unordered_set<int> >  checkClashBidwithState(Bid b,State &s)
 void deleteState(std::unordered_set<int>bids,State &s){
     for (auto it = bids.begin(); it != bids.end(); it++){
         int bidId = *it;
-        Bid b = allBids[bidId];
+        Bid b = (allBids[bidId]).get();
         for (auto it2 = b.Regions.begin(); it2 != b.Regions.end(); it2++){
             int region = *it2;
             s.Regions_assigned[region] = -1;
@@ -75,7 +73,7 @@ void deletandAdd(Bid &b, std::pair<int, std::unordered_set<int> > &clash, State 
     }
 }
 
-void addBidtoState(Bid b,State &s)
+boolean addBidtoState(Bid b,State &s)
 {
     // update State.
     std::pair<int,std::unordered_set<int> > clash = checkClashBidwithState(b,s);
@@ -86,32 +84,55 @@ void addBidtoState(Bid b,State &s)
             int region = *it;
             s.Regions_assigned[region] = b.Bid_Id;
         }
+        return true;
     }
     else{
         //compare the costs of bid andclashing states
         if(clash.first < b.Price){
             //remove clashing states and add the new one
             deletandAdd(b,clash,s);
+            return true;
         }
         else if(clash.first == b.Price){
             //randomly chose one
             double random = ((double) rand() / (RAND_MAX)) + 1 ;
             if (random >= 0.5){
                 deletandAdd(b,clash,s);
+                return true;
+            }
+            else{
+                return false;
             }
         }
         else{
             //(clash.first > b.Price){
             //keep the original states
+            return false;
         }
     }
 }
 
 
-/*State HillClimb()
-{
+State HillClimb(State &s, int i,int cnt, int C){
     // start state determined by var State
-}*/
+    bool chk = false;
+    std::set<int> bidsofCompany = Company_Bids[i];
+    for (auto it = bidsofCompany.begin(); it<bidsofCompany.end(); it++){
+        Bid b = *it;
+        chk = addBidtoState(b,s);
+        if (chk)
+        {
+            break;
+        }
+    }
+    if (cnt >= C){
+        return s;
+    }
+    else{
+        return HillClimb(s,(i+1)%C,cnt+1,C);
+    }
+
+}
 
 int main(){
 
@@ -128,8 +149,8 @@ int main(){
         f_in >> M >> B >> C;
         std::cout << M << " " <<  B << " " << C << std::endl;
         //std::unordered_map<int, Bid> X;
-        Company_Bids = std::vector<std::set<int> > (C);
-        allBids = std::vector<Bid> (B);
+        Company_Bids = std::vector<std::set<Bid> > (C);
+//        allBids = std::vector<Bid& > ();
         Sorted_Bids = std::vector<Bid> (B);
 
         for (int i = 0 ; i < B ; i ++){
@@ -155,8 +176,8 @@ int main(){
                 f_in >> region;
             }
             xi.Regions = regs;
-            Company_Bids[comp_i].insert(i);
-            allBids[i] = xi;
+            Company_Bids[comp_i].insert(xi);
+            allBids.push_back(xi);
             Sorted_Bids[i] = xi;
         }
         // all Bids parsed
@@ -177,65 +198,4 @@ int main(){
     return 0;
 }
 
-
-
-/*
-//UNOPTIMISED BULLSHIT
-int checkRegionClashBetweenBids(Bid b1, Bid b2){
-
-    int r1 = b1.Regions.size();
-    int r2 = b2.Regions.size();
-
-    //whether any region in b2 is already present in b1, take intersection
-    std::vector<int> regIntersection(r1+r2);
-    std::vector<int>::iterator it;
-    it=std::set_intersection (b1.Regions, b1.Regions+r1, b1.Regions, b1.Regions+r2, regIntersection.begin());
-
-    regIntersection.resize(it-regIntersection.begin());
-
-    if (regIntersection.size()==0){
-        //0 conflicts
-        return 2;
-    }
-    else if (b1.Price>b2.Price){
-        return 0;
-    }
-    else if (b2.Price>b1.Price){
-        return 1;
-    }
-    else{
-        int random = (int)(10*(((double) rand() / (RAND_MAX)) + 1)) ;
-        return random % 2;
-    }
-}
-
-//GENERATE START STATE WITH BULLSHIT ---INCOMPLETE
-State genStartState(Vec_of_Maps CompanyBids, int C){
-    State startState;
-    //get company with most bids
-    int firstComp = getCompanyWithMostBids(CompanyBids, C);
-
-    //pick random bid from its bids
-    int random = ;
-    Bid b = CompanyBids[firstComp][random];
-
-    //add this bid to the state
-    startState.Company_Bid.add(b);
-
-    //add the regions catered to by this bid
-
-
-    //now loop over all other companies
-    int i = 0;
-    while (i<C){
-        if (i!=firstComp){
-            //try to add the bids without conflicts with values in non-decreasing order
-            // we will need a list of all regions catered to by the current state and a function to check clash like the one between bids
-            // State.Regions is a map Region no->bid no is it?
-        }
-    }
-
-}
-*/
-//
 
