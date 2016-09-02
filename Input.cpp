@@ -40,11 +40,11 @@ int main()
 {
 
     //take input file as argument
-    std::string infile = "3.txt";
+    std::string infile = "/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/3.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("LS1_Double_3.txt");
+    outfile.open("/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/output.txt");
     outfile << f_in.is_open() << std::endl;
 
     if (f_in.is_open())
