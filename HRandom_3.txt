@@ -1,0 +1,398 @@
+1
+214 567 221
+0
+Company 1
+Adding Bid 4
+Company 1Profit : 2487054
+Company 2
+Company 2Profit : 2829618
+Company 3
+Company 3Profit : 3455843
+Company 4
+Company 4Profit : 3495698
+Company 5
+Company 5Profit : 3983132
+Company 6
+Company 6Profit : 3983132
+Company 7
+Company 7Profit : 3983132
+Company 8
+Company 8Profit : 5299846
+Company 9
+Company 9Profit : 5299846
+Company 10
+Company 10Profit : 5299846
+Company 11
+Company 11Profit : 5409512
+Company 12
+Company 12Profit : 5409512
+Company 13
+Company 13Profit : 5409512
+Company 14
+Company 14Profit : 5649137
+Company 15
+Company 15Profit : 6307983
+Company 16
+Company 16Profit : 6307983
+Company 17
+Company 17Profit : 6727229
+Company 18
+Company 18Profit : 7027109
+Company 19
+Company 19Profit : 7127255
+Company 20
+Company 20Profit : 7198059
+Company 21
+Company 21Profit : 7198059
+Company 22
+Company 22Profit : 7286493
+Company 23
+Company 23Profit : 7286493
+Company 24
+Company 24Profit : 7574329
+Company 25
+Company 25Profit : 7816561
+Company 26
+Company 26Profit : 7816561
+Company 27
+Company 27Profit : 7816561
+Company 28
+Adding Bid 73
+Company 28Profit : 8156872
+Company 29
+Company 29Profit : 8156872
+Company 30
+Company 30Profit : 8156872
+Company 31
+Company 31Profit : 8156872
+Company 32
+Company 32Profit : 8156872
+Company 33
+Company 33Profit : 8156872
+Company 34
+Company 34Profit : 8156872
+Company 35
+Company 35Profit : 8156872
+Company 36
+Company 36Profit : 8156872
+Company 37
+Company 37Profit : 8156872
+Company 38
+Adding Bid 104
+Company 38Profit : 8279837
+Company 39
+Company 39Profit : 8625839
+Company 40
+Company 40Profit : 8625839
+Company 41
+Company 41Profit : 8625839
+Company 42
+Company 42Profit : 8625839
+Company 43
+Adding Bid 116
+Company 43Profit : 8747727
+Company 44
+Company 44Profit : 8747727
+Company 45
+Adding Bid 122
+Company 45Profit : 8787094
+Company 46
+Company 46Profit : 8787094
+Company 47
+Adding Bid 125
+Company 47Profit : 9073090
+Company 48
+Company 48Profit : 9073090
+Company 49
+Company 49Profit : 9073090
+Company 50
+Company 50Profit : 9158355
+Company 51
+Adding Bid 136
+Company 51Profit : 9464978
+Company 52
+Company 52Profit : 9876700
+Company 53
+Company 53Profit : 9959312
+Company 54
+Company 54Profit : 9959312
+Company 55
+Company 55Profit : 10051640
+Company 56
+Company 56Profit : 10132057
+Company 57
+Company 57Profit : 10132057
+Company 58
+Company 58Profit : 10132057
+Company 59
+Company 59Profit : 10132057
+Company 60
+Company 60Profit : 10132057
+Company 61
+Company 61Profit : 10132057
+Company 62
+Company 62Profit : 10132057
+Company 63
+Company 63Profit : 10132057
+Company 64
+Company 64Profit : 10132057
+Company 65
+Company 65Profit : 10132057
+Company 66
+Company 66Profit : 10132057
+Company 67
+Company 67Profit : 10132057
+Company 68
+Company 68Profit : 10238629
+Company 69
+Company 69Profit : 10238629
+Company 70
+Company 70Profit : 10238629
+Company 71
+Company 71Profit : 10238629
+Company 72
+Company 72Profit : 10238629
+Company 73
+Adding Bid 192
+Company 73Profit : 10251422
+Company 74
+Company 74Profit : 10325386
+Company 75
+Company 75Profit : 10489825
+Company 76
+Company 76Profit : 10738868
+Company 77
+Company 77Profit : 10738868
+Company 78
+Adding Bid 202
+Company 78Profit : 11116001
+Company 79
+Adding Bid 206
+Company 79Profit : 11129256
+Company 80
+Company 80Profit : 11129256
+Company 81
+Company 81Profit : 11129256
+Company 82
+Company 82Profit : 11129256
+Company 83
+Company 83Profit : 11129256
+Company 84
+Company 84Profit : 11129256
+Company 85
+Company 85Profit : 11129256
+Company 86
+Company 86Profit : 11129256
+Company 87
+Company 87Profit : 11129256
+Company 88
+Company 88Profit : 11129256
+Company 89
+Company 89Profit : 11129256
+Company 90
+Company 90Profit : 11190258
+Company 91
+Company 91Profit : 11190258
+Company 92
+Company 92Profit : 11376961
+Company 93
+Company 93Profit : 11376961
+Company 94
+Company 94Profit : 11376961
+Company 95
+Company 95Profit : 11376961
+Company 96
+Adding Bid 244
+Company 96Profit : 11396464
+Company 97
+Company 97Profit : 11396464
+Company 98
+Company 98Profit : 11396464
+Company 99
+Company 99Profit : 11396464
+Company 100
+Company 100Profit : 11396464
+Company 101
+Company 101Profit : 11396464
+Company 102
+Company 102Profit : 11509070
+Company 103
+Company 103Profit : 11509070
+Company 104
+Company 104Profit : 11752382
+Company 105
+Company 105Profit : 11752382
+Company 106
+Company 106Profit : 11752382
+Company 107
+Company 107Profit : 11752382
+Company 108
+Company 108Profit : 11752382
+Company 109
+Company 109Profit : 11752382
+Company 110
+Company 110Profit : 11752382
+Company 111
+Adding Bid 279
+Company 111Profit : 11996157
+Company 112
+Company 112Profit : 11996157
+Company 113
+Company 113Profit : 11996157
+Company 114
+Company 114Profit : 11996157
+Company 115
+Company 115Profit : 11996157
+Company 116
+Company 116Profit : 11996157
+Company 117
+Company 117Profit : 11996157
+Company 118
+Company 118Profit : 11996157
+Company 119
+Company 119Profit : 11996157
+Company 120
+Company 120Profit : 11996157
+Company 121
+Company 121Profit : 11996157
+Company 122
+Company 122Profit : 12223276
+Company 123
+Adding Bid 312
+Company 123Profit : 12240824
+Company 124
+Company 124Profit : 12240824
+Company 125
+Company 125Profit : 12240824
+Company 126
+Company 126Profit : 12240824
+Company 127
+Company 127Profit : 12240824
+Company 128
+Company 128Profit : 12240824
+Company 129
+Company 129Profit : 12240824
+Company 130
+Company 130Profit : 12240824
+Company 131
+Company 131Profit : 12240824
+Company 132
+Company 132Profit : 12240824
+Company 133
+Company 133Profit : 12240824
+Company 134
+Company 134Profit : 12240824
+Company 135
+Company 135Profit : 12240824
+Company 136
+Company 136Profit : 12240824
+Company 137
+Company 137Profit : 12240824
+Company 138
+Company 138Profit : 12240824
+Company 139
+Company 139Profit : 12240824
+Company 140
+Company 140Profit : 12240824
+Company 141
+Company 141Profit : 12240824
+Company 142
+Company 142Profit : 12240824
+Company 143
+Company 143Profit : 12240824
+Company 144
+Company 144Profit : 12240824
+Company 145
+Company 145Profit : 12240824
+Company 146
+Company 146Profit : 12240824
+Company 147
+Company 147Profit : 12240824
+Company 148
+Company 148Profit : 12240824
+Company 149
+Company 149Profit : 12240824
+Company 150
+Company 150Profit : 12240824
+Company 151
+Company 151Profit : 12240824
+Company 152
+Company 152Profit : 12240824
+Company 153
+Company 153Profit : 12240824
+Company 154
+Company 154Profit : 12240824
+Company 155
+Company 155Profit : 12240824
+Company 156
+Company 156Profit : 12240824
+Company 157
+Company 157Profit : 12240824
+Company 158
+Company 158Profit : 12332136
+Company 159
+Company 159Profit : 12332136
+Company 160
+Company 160Profit : 12332136
+Company 161
+Company 161Profit : 12332136
+Company 162
+Company 162Profit : 12332136
+Company 163
+Company 163Profit : 12332136
+Company 164
+Company 164Profit : 12332136
+Company 165
+Company 165Profit : 12332136
+Company 166
+Company 166Profit : 12422623
+Company 167
+Company 167Profit : 12422623
+Company 168
+Company 168Profit : 12422623
+Company 169
+Company 169Profit : 12422623
+Company 170
+Company 170Profit : 12422623
+Company 171
+Company 171Profit : 12422623
+Company 172
+Company 172Profit : 12490175
+Company 173
+Company 173Profit : 12490175
+Company 174
+Company 174Profit : 12490175
+Company 175
+Company 175Profit : 12490175
+Company 176
+Adding Bid 446
+Company 176Profit : 12529346
+Company 177
+Company 177Profit : 12612247
+Company 178
+Company 178Profit : 12612247
+Company 179
+Company 179Profit : 12612247
+Company 180
+Company 180Profit : 12612247
+Company 181
+Adding Bid 460
+Company 181Profit : 12735607
+Company 182
+Company 182Profit : 12735607
+Company 183
+Company 183Profit : 12735607
+Company 184
+Company 184Profit : 12735607
+Company 185
+Company 185Profit : 12735607
+Company 186
+Company 186Profit : 12735607
+Company 187
+Company 187Profit : 12735607
+Company 188
+Company 188Profit : 12735607
+Company 189
+Company 189Profit : 12735607
+Company 190
+Company 190Profit : 12735607

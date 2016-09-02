@@ -17,7 +17,7 @@ std::pair<int,std::unordered_set<int> >  checkClashBidwithState(Bid b,State &s)
 		if (bid_state != -1 && bids_clashing.find(bid_state) == bids_clashing.end())
 		{
 			bids_clashing.insert(bid_state);
-            outfile << b.Bid_Id << " clashing with " << bid_state << std::endl;	
+            // outfile << b.Bid_Id << " clashing with " << bid_state << std::endl;	
             clash_cost += allBids[bid_state].Price;
 		}
 	}
@@ -25,7 +25,7 @@ std::pair<int,std::unordered_set<int> >  checkClashBidwithState(Bid b,State &s)
     if (comp_bid != -1 && bids_clashing.find(comp_bid) == bids_clashing.end())
     {
         clash_cost += allBids[comp_bid].Price;
-        outfile << b.Bid_Id << " clashing with " << comp_bid << std::endl;
+        // outfile << b.Bid_Id << " clashing with " << comp_bid << std::endl;
         bids_clashing.insert(comp_bid);
     }
 	return std::make_pair(clash_cost, bids_clashing);
@@ -37,7 +37,7 @@ void deleteState(std::unordered_set<int> bids,State &s){
         int bidId = *it;
         Bid b = (allBids[bidId]);
         s.Profit -= b.Price;
-        outfile << "Deleting Bid " << b.Bid_Id << std::endl;
+        // outfile << "Deleting Bid " << b.Bid_Id << std::endl;
         for (auto it2 = b.Regions.begin(); it2 != b.Regions.end(); it2++){
             int region = *it2;
             s.Regions_assigned[region] = -1;

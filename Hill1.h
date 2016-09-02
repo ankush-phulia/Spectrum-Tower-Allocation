@@ -89,7 +89,7 @@ State HillClimb(State &s, int i,int cnt, int C, int passes){
     }
     //get a random double
     double random = ((double) rand() / (RAND_MAX)) + 1 ;
-    if (random>=0.0005){
+    if (random<=0.0005){
         Bid randomBid = allBids[bidsofCompanyVec[randomBidId]];
         addBidtoState(randomBid, s, rand_clash);
     }
@@ -146,7 +146,7 @@ void Restart_Hill()
         Types::Price_Bids empty_clash = std::make_pair(0, empty_set);
         addBidtoState(randomBid, Curr2, empty_clash);
 
-        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 5);
+        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 3);
         if (Curr2.Profit > BestState.Profit)
             BestState = Curr2;
         outfile << "\n \n \n";
