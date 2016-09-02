@@ -12,8 +12,7 @@
 #include <map>
 #include <set>
 
-struct Bid
-{
+struct Bid{
     int Bid_Id;
     int Company;
     double Price;
@@ -26,11 +25,10 @@ struct Bid
 
 };
 
-struct State
-{
+struct State{
 //    std::set<int> Bid_ids;
     int Profit;
-    std::vector<int> Bids_Company;   // size = C
+    std::vector<int> Bids_Company;       // size = C
     std::vector<int> Regions_assigned;  // size = M
 };
 

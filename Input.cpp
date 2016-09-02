@@ -52,10 +52,59 @@ std::pair<int,std::unordered_set<int> >  checkClashBidwithState(Bid b,State &s)
 	return std::make_pair(clash_cost, bids_clashing);
 }
 
+void deleteState(std::unordered_set<int>bids,State &s){
+    for (auto it = bids.begin(); it != bids.end(); it++){
+        int bidId = *it;
+        Bid b = allBids[bidId];
+        for (auto it2 = b.Regions.begin(); it2 != b.Regions.end(); it2++){
+            int region = *it2;
+            s.Regions_assigned[region] = -1;
+        }
+        s.Bids_Company[b.Company] = -1;
+    }
+}
+
+void deletandAdd(Bid b, State &s){
+
+    deleteState(clash.second,s);
+    s.Bids_Company[b.Company] = b.Bid_Id;
+
+    for (auto it = b.Regions.begin(); it != b.Regions.end(); it++){
+        int region = *it;
+        s.Regions_assigned[region] = b.Bid_Id;
+    }
+}
 
 void addBidtoState(Bid b,State &s)
 {
-    // update State. TODO : ANKUSH
+    // update State.
+    std::pair<int,std::unordered_set<int> > clash = checkClashBidwithState(b,s);
+    if (clash.second.size()==0){
+        // if no clash, simply add to the state
+        s.Bids_Company[b.Company] = b.Bid_Id;
+        for (auto it = b.Regions.begin(); it != b.Regions.end(); it++){
+            int region = *it;
+            s.Regions_assigned[region] = b.Bid_Id;
+        }
+    }
+    else{
+        //compare the costs of bid andclashing states
+        if(clash.first < b.Price){
+            //remove clashing states and add the new one
+            deletandAdd(b,s);
+        }
+        else if(clash.first == b.Price){
+            //randomly chose one
+            double random = ((double) rand() / (RAND_MAX)) + 1 ;
+            if (random >= 0.5){
+                deletandAdd(b,s);
+            }
+        }
+        else{
+            //(clash.first > b.Price){
+            //keep the original states
+        }
+    }
 }
 
 
