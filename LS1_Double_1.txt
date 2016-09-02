@@ -1,0 +1,940 @@
+1
+77 29 9
+0
+Company 0
+Company 0Profit : 97759
+Company 1
+Company 1Profit : 198363
+Company 2
+Company 2Profit : 793836
+Company 3
+Company 3Profit : 845048
+Company 4
+Company 4Profit : 1096865
+Company 5
+Company 5Profit : 1152043
+Company 6
+Company 6Profit : 1331226
+Company 7
+Company 7Profit : 1342298
+Company 8
+23 clashing with 3
+22 clashing with 17
+24 clashing with 17
+25 clashing with 3
+25 clashing with 18
+26 clashing with 3
+27 clashing with 3
+27 clashing with 21
+28 clashing with 3
+28 clashing with 17
+Deleting Bid 17
+Adding Bid 22
+Company 8Profit : 1809250
+Company 0
+0 clashing with 0
+Company 0Profit : 1809250
+Company 1
+1 clashing with 1
+Company 1Profit : 1809250
+Company 2
+3 clashing with 3
+4 clashing with 22
+4 clashing with 18
+4 clashing with 3
+5 clashing with 22
+5 clashing with 3
+6 clashing with 13
+6 clashing with 3
+7 clashing with 13
+7 clashing with 3
+8 clashing with 13
+8 clashing with 3
+9 clashing with 13
+9 clashing with 11
+9 clashing with 3
+10 clashing with 3
+2 clashing with 11
+2 clashing with 3
+Company 2Profit : 1809250
+Company 3
+11 clashing with 11
+Company 3Profit : 1809250
+Company 4
+13 clashing with 13
+14 clashing with 13
+15 clashing with 13
+12 clashing with 13
+16 clashing with 13
+Company 4Profit : 1809250
+Company 5
+17 clashing with 22
+Company 5Profit : 1809250
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 18
+Company 6Profit : 1809250
+Company 7
+21 clashing with 21
+Company 7Profit : 1809250
+Company 8
+23 clashing with 3
+23 clashing with 22
+22 clashing with 22
+24 clashing with 22
+25 clashing with 3
+25 clashing with 22
+25 clashing with 18
+26 clashing with 3
+26 clashing with 22
+27 clashing with 3
+27 clashing with 22
+27 clashing with 21
+28 clashing with 3
+28 clashing with 22
+Company 8Profit : 1809250
+Company 0
+0 clashing with 0
+Company 0Profit : 1809250
+
+ 
+ 
+Company 1
+Company 1Profit : 100604
+Company 2
+Company 2Profit : 696077
+Company 3
+Company 3Profit : 747289
+Company 4
+Company 4Profit : 999106
+Company 5
+Company 5Profit : 1054284
+Company 6
+Company 6Profit : 1233467
+Company 7
+Company 7Profit : 1244539
+Company 8
+23 clashing with 3
+22 clashing with 17
+24 clashing with 17
+25 clashing with 3
+25 clashing with 18
+26 clashing with 3
+27 clashing with 3
+27 clashing with 21
+28 clashing with 3
+28 clashing with 17
+Deleting Bid 17
+Adding Bid 22
+Company 8Profit : 1711491
+Company 0
+Company 0Profit : 1809250
+Company 1
+1 clashing with 1
+Company 1Profit : 1809250
+Company 2
+3 clashing with 3
+4 clashing with 22
+4 clashing with 18
+4 clashing with 3
+5 clashing with 22
+5 clashing with 3
+6 clashing with 13
+6 clashing with 3
+7 clashing with 13
+7 clashing with 3
+8 clashing with 13
+8 clashing with 3
+9 clashing with 13
+9 clashing with 11
+9 clashing with 3
+10 clashing with 3
+2 clashing with 11
+2 clashing with 3
+Company 2Profit : 1809250
+Company 3
+11 clashing with 11
+Company 3Profit : 1809250
+Company 4
+13 clashing with 13
+14 clashing with 13
+15 clashing with 13
+12 clashing with 13
+16 clashing with 13
+Company 4Profit : 1809250
+Company 5
+17 clashing with 22
+Company 5Profit : 1809250
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 18
+Company 6Profit : 1809250
+Company 7
+21 clashing with 21
+Company 7Profit : 1809250
+Company 8
+23 clashing with 3
+23 clashing with 22
+22 clashing with 22
+24 clashing with 22
+25 clashing with 3
+25 clashing with 22
+25 clashing with 18
+26 clashing with 3
+26 clashing with 22
+27 clashing with 3
+27 clashing with 22
+27 clashing with 21
+28 clashing with 3
+28 clashing with 22
+Company 8Profit : 1809250
+Company 0
+0 clashing with 0
+Company 0Profit : 1809250
+Company 1
+1 clashing with 1
+Company 1Profit : 1809250
+
+ 
+ 
+Company 2
+Company 2Profit : 595473
+Company 3
+Company 3Profit : 646685
+Company 4
+Company 4Profit : 898502
+Company 5
+Company 5Profit : 953680
+Company 6
+Company 6Profit : 1132863
+Company 7
+Company 7Profit : 1143935
+Company 8
+23 clashing with 3
+22 clashing with 17
+24 clashing with 17
+25 clashing with 3
+25 clashing with 18
+26 clashing with 3
+27 clashing with 3
+27 clashing with 21
+28 clashing with 3
+28 clashing with 17
+Deleting Bid 17
+Adding Bid 22
+Company 8Profit : 1610887
+Company 0
+Company 0Profit : 1708646
+Company 1
+Company 1Profit : 1809250
+Company 2
+3 clashing with 3
+4 clashing with 22
+4 clashing with 18
+4 clashing with 3
+5 clashing with 22
+5 clashing with 3
+6 clashing with 13
+6 clashing with 3
+7 clashing with 13
+7 clashing with 3
+8 clashing with 13
+8 clashing with 3
+9 clashing with 13
+9 clashing with 11
+9 clashing with 3
+10 clashing with 3
+2 clashing with 11
+2 clashing with 3
+Company 2Profit : 1809250
+Company 3
+11 clashing with 11
+Company 3Profit : 1809250
+Company 4
+13 clashing with 13
+14 clashing with 13
+15 clashing with 13
+12 clashing with 13
+16 clashing with 13
+Company 4Profit : 1809250
+Company 5
+17 clashing with 22
+Company 5Profit : 1809250
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 18
+Company 6Profit : 1809250
+Company 7
+21 clashing with 21
+Company 7Profit : 1809250
+Company 8
+23 clashing with 3
+23 clashing with 22
+22 clashing with 22
+24 clashing with 22
+25 clashing with 3
+25 clashing with 22
+25 clashing with 18
+26 clashing with 3
+26 clashing with 22
+27 clashing with 3
+27 clashing with 22
+27 clashing with 21
+28 clashing with 3
+28 clashing with 22
+Company 8Profit : 1809250
+Company 0
+0 clashing with 0
+Company 0Profit : 1809250
+Company 1
+1 clashing with 1
+Company 1Profit : 1809250
+Company 2
+3 clashing with 3
+4 clashing with 22
+4 clashing with 18
+4 clashing with 3
+5 clashing with 22
+5 clashing with 3
+6 clashing with 13
+6 clashing with 3
+7 clashing with 13
+7 clashing with 3
+8 clashing with 13
+8 clashing with 3
+9 clashing with 13
+9 clashing with 11
+9 clashing with 3
+10 clashing with 3
+2 clashing with 11
+2 clashing with 3
+Company 2Profit : 1809250
+
+ 
+ 
+Company 3
+Company 3Profit : 51212
+Company 4
+Company 4Profit : 303029
+Company 5
+Company 5Profit : 358207
+Company 6
+Company 6Profit : 537390
+Company 7
+Company 7Profit : 548462
+Company 8
+22 clashing with 17
+24 clashing with 17
+25 clashing with 18
+27 clashing with 21
+28 clashing with 17
+Company 8Profit : 1075460
+Company 0
+Company 0Profit : 1173219
+Company 1
+Company 1Profit : 1273823
+Company 2
+3 clashing with 23
+4 clashing with 17
+4 clashing with 18
+6 clashing with 13
+7 clashing with 13
+8 clashing with 13
+9 clashing with 13
+9 clashing with 11
+2 clashing with 11
+Company 2Profit : 1834885
+Company 3
+11 clashing with 11
+Company 3Profit : 1834885
+Company 4
+13 clashing with 13
+14 clashing with 23
+14 clashing with 13
+15 clashing with 5
+15 clashing with 13
+12 clashing with 13
+16 clashing with 5
+16 clashing with 13
+Company 4Profit : 1834885
+Company 5
+17 clashing with 17
+Company 5Profit : 1834885
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 5
+20 clashing with 18
+Company 6Profit : 1834885
+Company 7
+21 clashing with 21
+Company 7Profit : 1834885
+Company 8
+23 clashing with 23
+22 clashing with 23
+22 clashing with 17
+22 clashing with 5
+24 clashing with 17
+24 clashing with 5
+24 clashing with 23
+25 clashing with 23
+25 clashing with 18
+26 clashing with 23
+27 clashing with 23
+27 clashing with 21
+27 clashing with 5
+28 clashing with 17
+28 clashing with 23
+Company 8Profit : 1834885
+Company 0
+0 clashing with 0
+Company 0Profit : 1834885
+Company 1
+1 clashing with 1
+Company 1Profit : 1834885
+Company 2
+3 clashing with 23
+3 clashing with 5
+4 clashing with 17
+4 clashing with 5
+4 clashing with 18
+5 clashing with 5
+6 clashing with 5
+6 clashing with 13
+7 clashing with 13
+7 clashing with 5
+8 clashing with 13
+8 clashing with 5
+9 clashing with 13
+9 clashing with 11
+9 clashing with 5
+10 clashing with 5
+2 clashing with 5
+2 clashing with 11
+Company 2Profit : 1834885
+Company 3
+11 clashing with 11
+Company 3Profit : 1834885
+
+ 
+ 
+Company 4
+Company 4Profit : 251817
+Company 5
+Company 5Profit : 306995
+Company 6
+Company 6Profit : 486178
+Company 7
+Company 7Profit : 497250
+Company 8
+22 clashing with 17
+24 clashing with 17
+25 clashing with 18
+27 clashing with 21
+28 clashing with 17
+Company 8Profit : 1024248
+Company 0
+Company 0Profit : 1122007
+Company 1
+Company 1Profit : 1222611
+Company 2
+3 clashing with 23
+4 clashing with 17
+4 clashing with 18
+6 clashing with 13
+7 clashing with 13
+8 clashing with 13
+9 clashing with 13
+Company 2Profit : 1783673
+Company 3
+Company 3Profit : 1834885
+Company 4
+13 clashing with 13
+14 clashing with 23
+14 clashing with 13
+15 clashing with 5
+15 clashing with 13
+12 clashing with 13
+16 clashing with 5
+16 clashing with 13
+Company 4Profit : 1834885
+Company 5
+17 clashing with 17
+Company 5Profit : 1834885
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 5
+20 clashing with 18
+Company 6Profit : 1834885
+Company 7
+21 clashing with 21
+Company 7Profit : 1834885
+Company 8
+23 clashing with 23
+22 clashing with 23
+22 clashing with 17
+22 clashing with 5
+24 clashing with 17
+24 clashing with 5
+24 clashing with 23
+25 clashing with 23
+25 clashing with 18
+26 clashing with 23
+27 clashing with 23
+27 clashing with 21
+27 clashing with 5
+28 clashing with 17
+28 clashing with 23
+Company 8Profit : 1834885
+Company 0
+0 clashing with 0
+Company 0Profit : 1834885
+Company 1
+1 clashing with 1
+Company 1Profit : 1834885
+Company 2
+3 clashing with 23
+3 clashing with 5
+4 clashing with 17
+4 clashing with 5
+4 clashing with 18
+5 clashing with 5
+6 clashing with 5
+6 clashing with 13
+7 clashing with 13
+7 clashing with 5
+8 clashing with 13
+8 clashing with 5
+9 clashing with 13
+9 clashing with 11
+9 clashing with 5
+10 clashing with 5
+2 clashing with 5
+2 clashing with 11
+Company 2Profit : 1834885
+Company 3
+11 clashing with 11
+Company 3Profit : 1834885
+Company 4
+13 clashing with 13
+14 clashing with 23
+14 clashing with 13
+15 clashing with 5
+15 clashing with 13
+12 clashing with 13
+16 clashing with 5
+16 clashing with 13
+Company 4Profit : 1834885
+
+ 
+ 
+Company 5
+Company 5Profit : 55178
+Company 6
+Company 6Profit : 234361
+Company 7
+Company 7Profit : 245433
+Company 8
+22 clashing with 17
+24 clashing with 17
+25 clashing with 18
+27 clashing with 21
+28 clashing with 17
+Company 8Profit : 772431
+Company 0
+Company 0Profit : 870190
+Company 1
+Company 1Profit : 970794
+Company 2
+3 clashing with 23
+4 clashing with 17
+4 clashing with 18
+Company 2Profit : 1531856
+Company 3
+Company 3Profit : 1583068
+Company 4
+14 clashing with 23
+15 clashing with 5
+16 clashing with 5
+Company 4Profit : 1834885
+Company 5
+17 clashing with 17
+Company 5Profit : 1834885
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 5
+20 clashing with 18
+Company 6Profit : 1834885
+Company 7
+21 clashing with 21
+Company 7Profit : 1834885
+Company 8
+23 clashing with 23
+22 clashing with 23
+22 clashing with 17
+22 clashing with 5
+24 clashing with 17
+24 clashing with 5
+24 clashing with 23
+25 clashing with 23
+25 clashing with 18
+26 clashing with 23
+27 clashing with 23
+27 clashing with 21
+27 clashing with 5
+28 clashing with 17
+28 clashing with 23
+Company 8Profit : 1834885
+Company 0
+0 clashing with 0
+Company 0Profit : 1834885
+Company 1
+1 clashing with 1
+Company 1Profit : 1834885
+Company 2
+3 clashing with 23
+3 clashing with 5
+4 clashing with 17
+4 clashing with 5
+4 clashing with 18
+5 clashing with 5
+6 clashing with 5
+6 clashing with 13
+7 clashing with 13
+7 clashing with 5
+8 clashing with 13
+8 clashing with 5
+9 clashing with 13
+9 clashing with 11
+9 clashing with 5
+10 clashing with 5
+2 clashing with 5
+2 clashing with 11
+Company 2Profit : 1834885
+Company 3
+11 clashing with 11
+Company 3Profit : 1834885
+Company 4
+13 clashing with 13
+14 clashing with 23
+14 clashing with 13
+15 clashing with 5
+15 clashing with 13
+12 clashing with 13
+16 clashing with 5
+16 clashing with 13
+Company 4Profit : 1834885
+Company 5
+17 clashing with 17
+Company 5Profit : 1834885
+
+ 
+ 
+Company 6
+Company 6Profit : 179183
+Company 7
+Company 7Profit : 190255
+Company 8
+25 clashing with 18
+27 clashing with 21
+Company 8Profit : 717253
+Company 0
+Company 0Profit : 815012
+Company 1
+Company 1Profit : 915616
+Company 2
+3 clashing with 23
+4 clashing with 18
+Company 2Profit : 1476678
+Company 3
+Company 3Profit : 1527890
+Company 4
+14 clashing with 23
+15 clashing with 5
+16 clashing with 5
+Company 4Profit : 1779707
+Company 5
+Company 5Profit : 1834885
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 5
+20 clashing with 18
+Company 6Profit : 1834885
+Company 7
+21 clashing with 21
+Company 7Profit : 1834885
+Company 8
+23 clashing with 23
+22 clashing with 23
+22 clashing with 17
+22 clashing with 5
+24 clashing with 17
+24 clashing with 5
+24 clashing with 23
+25 clashing with 23
+25 clashing with 18
+26 clashing with 23
+27 clashing with 23
+27 clashing with 21
+27 clashing with 5
+28 clashing with 17
+28 clashing with 23
+Company 8Profit : 1834885
+Company 0
+0 clashing with 0
+Company 0Profit : 1834885
+Company 1
+1 clashing with 1
+Company 1Profit : 1834885
+Company 2
+3 clashing with 23
+3 clashing with 5
+4 clashing with 17
+4 clashing with 5
+4 clashing with 18
+5 clashing with 5
+6 clashing with 5
+6 clashing with 13
+7 clashing with 13
+7 clashing with 5
+8 clashing with 13
+8 clashing with 5
+9 clashing with 13
+9 clashing with 11
+9 clashing with 5
+10 clashing with 5
+2 clashing with 5
+2 clashing with 11
+Company 2Profit : 1834885
+Company 3
+11 clashing with 11
+Company 3Profit : 1834885
+Company 4
+13 clashing with 13
+14 clashing with 23
+14 clashing with 13
+15 clashing with 5
+15 clashing with 13
+12 clashing with 13
+16 clashing with 5
+16 clashing with 13
+Company 4Profit : 1834885
+Company 5
+17 clashing with 17
+Company 5Profit : 1834885
+Company 6
+18 clashing with 18
+19 clashing with 18
+20 clashing with 5
+20 clashing with 18
+Company 6Profit : 1834885
+
+ 
+ 
+Company 7
+Company 7Profit : 11072
+Company 8
+27 clashing with 21
+Company 8Profit : 538070
+Company 0
+Company 0Profit : 635829
+Company 1
+Company 1Profit : 736433
+Company 2
+3 clashing with 23
+Company 2Profit : 1331259
+Company 3
+Company 3Profit : 1382471
+Company 4
+14 clashing with 23
+15 clashing with 4
+Company 4Profit : 1634288
+Company 5
+17 clashing with 4
+Company 5Profit : 1634288
+Company 6
+18 clashing with 4
+19 clashing with 4
+20 clashing with 4
+Company 6Profit : 1634288
+Company 7
+21 clashing with 21
+Company 7Profit : 1634288
+Company 8
+23 clashing with 23
+22 clashing with 4
+22 clashing with 23
+24 clashing with 4
+24 clashing with 23
+25 clashing with 23
+25 clashing with 4
+26 clashing with 23
+27 clashing with 4
+27 clashing with 23
+27 clashing with 21
+28 clashing with 4
+28 clashing with 23
+Company 8Profit : 1634288
+Company 0
+0 clashing with 0
+Company 0Profit : 1634288
+Company 1
+1 clashing with 1
+Company 1Profit : 1634288
+Company 2
+3 clashing with 23
+3 clashing with 4
+4 clashing with 4
+5 clashing with 4
+6 clashing with 13
+6 clashing with 4
+7 clashing with 13
+7 clashing with 4
+8 clashing with 13
+8 clashing with 4
+9 clashing with 13
+9 clashing with 11
+9 clashing with 4
+10 clashing with 4
+2 clashing with 4
+2 clashing with 11
+Company 2Profit : 1634288
+Company 3
+11 clashing with 11
+Company 3Profit : 1634288
+Company 4
+13 clashing with 13
+14 clashing with 23
+14 clashing with 13
+15 clashing with 4
+15 clashing with 13
+12 clashing with 13
+16 clashing with 13
+Company 4Profit : 1634288
+Company 5
+17 clashing with 4
+Company 5Profit : 1634288
+Company 6
+18 clashing with 4
+19 clashing with 4
+20 clashing with 4
+Company 6Profit : 1634288
+Company 7
+21 clashing with 21
+Company 7Profit : 1634288
+
+ 
+ 
+Company 8
+Company 8Profit : 526998
+Company 0
+Company 0Profit : 624757
+Company 1
+Company 1Profit : 725361
+Company 2
+3 clashing with 23
+Company 2Profit : 1320187
+Company 3
+Company 3Profit : 1371399
+Company 4
+14 clashing with 23
+15 clashing with 4
+Company 4Profit : 1623216
+Company 5
+17 clashing with 4
+Company 5Profit : 1623216
+Company 6
+18 clashing with 4
+19 clashing with 4
+20 clashing with 4
+Company 6Profit : 1623216
+Company 7
+Company 7Profit : 1634288
+Company 8
+23 clashing with 23
+22 clashing with 4
+22 clashing with 23
+24 clashing with 4
+24 clashing with 23
+25 clashing with 23
+25 clashing with 4
+26 clashing with 23
+27 clashing with 4
+27 clashing with 23
+27 clashing with 21
+28 clashing with 4
+28 clashing with 23
+Company 8Profit : 1634288
+Company 0
+0 clashing with 0
+Company 0Profit : 1634288
+Company 1
+1 clashing with 1
+Company 1Profit : 1634288
+Company 2
+3 clashing with 23
+3 clashing with 4
+4 clashing with 4
+5 clashing with 4
+6 clashing with 13
+6 clashing with 4
+7 clashing with 13
+7 clashing with 4
+8 clashing with 13
+8 clashing with 4
+9 clashing with 13
+9 clashing with 11
+9 clashing with 4
+10 clashing with 4
+2 clashing with 4
+2 clashing with 11
+Company 2Profit : 1634288
+Company 3
+11 clashing with 11
+Company 3Profit : 1634288
+Company 4
+13 clashing with 13
+14 clashing with 23
+14 clashing with 13
+15 clashing with 4
+15 clashing with 13
+12 clashing with 13
+16 clashing with 13
+Company 4Profit : 1634288
+Company 5
+17 clashing with 4
+Company 5Profit : 1634288
+Company 6
+18 clashing with 4
+19 clashing with 4
+20 clashing with 4
+Company 6Profit : 1634288
+Company 7
+21 clashing with 21
+Company 7Profit : 1634288
+Company 8
+23 clashing with 23
+22 clashing with 4
+22 clashing with 23
+24 clashing with 4
+24 clashing with 23
+25 clashing with 23
+25 clashing with 4
+26 clashing with 23
+27 clashing with 4
+27 clashing with 23
+27 clashing with 21
+28 clashing with 4
+28 clashing with 23
+Company 8Profit : 1634288
+
+ 
+ 
+ >>>>>> BESTSTATE IS  >>>>>>>> 
+Profit : 1834885

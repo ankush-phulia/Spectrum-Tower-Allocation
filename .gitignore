@@ -4,6 +4,9 @@ LS_1.txt
 LS_3.txt
 Noob_1.txt
 Noob_3.txt
+LS1_Double_1.txt
+LS1_Double_3.txt
+*.exe.stackdump
 *~
 *.autosave
 *.a

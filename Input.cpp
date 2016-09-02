@@ -1,6 +1,7 @@
 #include "structs.h"
 #include "State_Manip.h"
 #include "Hill1.h"
+#include "Hill2.h"
 
 // NOT NEEDED?
 double Time;
@@ -39,11 +40,11 @@ int main()
 {
 
     //take input file as argument
-    std::string infile = "1.txt";
+    std::string infile = "3.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("tryLS1.txt");
+    outfile.open("LS1_Double_3.txt");
     outfile << f_in.is_open() << std::endl;
 
     if (f_in.is_open())
