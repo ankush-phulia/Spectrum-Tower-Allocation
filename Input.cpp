@@ -64,7 +64,7 @@ void deleteState(std::unordered_set<int>bids,State &s){
     }
 }
 
-void deletandAdd(Bid b, State &s){
+void deletandAdd(Bid &b, std::pair<int, std::unordered_set<int> > &clash, State &s){
 
     deleteState(clash.second,s);
     s.Bids_Company[b.Company] = b.Bid_Id;
@@ -91,13 +91,13 @@ void addBidtoState(Bid b,State &s)
         //compare the costs of bid andclashing states
         if(clash.first < b.Price){
             //remove clashing states and add the new one
-            deletandAdd(b,s);
+            deletandAdd(b,clash,s);
         }
         else if(clash.first == b.Price){
             //randomly chose one
             double random = ((double) rand() / (RAND_MAX)) + 1 ;
             if (random >= 0.5){
-                deletandAdd(b,s);
+                deletandAdd(b,clash,s);
             }
         }
         else{
@@ -108,10 +108,10 @@ void addBidtoState(Bid b,State &s)
 }
 
 
-State HillClimb()
+/*State HillClimb()
 {
     // start state determined by var State
-}
+}*/
 
 int main(){
 
@@ -119,7 +119,7 @@ int main(){
     std::string infile = "/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/1.txt";
     std::ifstream f_in;
     f_in.open(infile);
-    std::cout << f_in.is_open();
+    //std::cout << f_in.is_open();
 
     if (f_in.is_open()){
 
@@ -166,13 +166,13 @@ int main(){
         std::cout << Sorted_Bids[0].Price;
         State Curr;
         Curr.Profit = 0;
-        while (Start < B)
-        {
-            State ith = HillClimb();
-            if (ith.Profit > Curr.Profit)
-                Curr = ith;
-            Start += 1;
-        }
+//        while (Start < B)
+//        {
+//            State ith = HillClimb();
+//            if (ith.Profit > Curr.Profit)
+//                Curr = ith;
+//            Start += 1;
+//        }
     }
     return 0;
 }
