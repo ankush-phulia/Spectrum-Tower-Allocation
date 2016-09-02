@@ -1,6 +1,9 @@
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
-
+LS_1.txt
+LS_3.txt
+Noob_1.txt
+Noob_3.txt
 *~
 *.autosave
 *.a

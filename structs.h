@@ -12,6 +12,12 @@
 #include <map>
 #include <set>
 #include <functional>
+#include <limits.h>
+
+int Start;
+extern double Time;
+extern int M,B,C;
+
 
 struct Bid{
     int Bid_Id;
@@ -33,6 +39,15 @@ struct State{
     std::vector<int> Regions_assigned;  // size = M
 };
 
+namespace Types
+{
+    typedef std::vector<std::set<Bid> > Vec_of_Maps;   // company to set of Bid IDs.
+    typedef std::pair<int,std::unordered_set<int> > Price_Bids;
+}
+extern Types::Vec_of_Maps Company_Bids;
+extern std::vector<Bid> allBids;
+extern std::vector<Bid> Sorted_Bids;
+extern std::ofstream outfile;
 //  Array of vector(unordered map) of bids Company -> Set of Bids. GLOBAL CONST
 
 #endif
