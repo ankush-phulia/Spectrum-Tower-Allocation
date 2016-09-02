@@ -9,7 +9,6 @@ int Start;
 double Time;
 
 
-
 //int getCompanyWithMostBids(Vec_of_Maps Company_Bids, int C){
 //    int maxbids = 0;
 //    int maxcomp = 0;
@@ -46,16 +45,20 @@ std::pair<int,std::unordered_set<int> >  checkClashBidwithState(Bid b,State &s)
 		if (bid_state != -1 && bids_clashing.find(bid_state) == bids_clashing.end())
 		{
 			bids_clashing.insert(bid_state);
-			clash_cost += allBids[bid_state].Price;			
+			clash_cost += allBids[bid_state].Price;
+            std::cout << b.Bid_Id << " clashing with " << bid_state << std::endl;		
 		}
 	}
 	return std::make_pair(clash_cost, bids_clashing);
 }
 
-void deleteState(std::unordered_set<int>bids,State &s){
-    for (auto it = bids.begin(); it != bids.end(); it++){
+void deleteState(std::unordered_set<int> bids,State &s){
+    for (auto it = bids.begin(); it != bids.end(); it++)
+    {
         int bidId = *it;
         Bid b = allBids[bidId];
+        s.Profit -= b.Price;
+        std::cout << "Deleting Bid " << b.Bid_Id << std::endl;
         for (auto it2 = b.Regions.begin(); it2 != b.Regions.end(); it2++){
             int region = *it2;
             s.Regions_assigned[region] = -1;
@@ -68,7 +71,8 @@ void deletandAdd(Bid &b, std::pair<int, std::unordered_set<int> > &clash, State 
 
     deleteState(clash.second,s);
     s.Bids_Company[b.Company] = b.Bid_Id;
-
+    s.Profit += b.Price;
+    std::cout << "Adding Bid " << b.Bid_Id << std::endl;
     for (auto it = b.Regions.begin(); it != b.Regions.end(); it++){
         int region = *it;
         s.Regions_assigned[region] = b.Bid_Id;
@@ -79,9 +83,11 @@ void addBidtoState(Bid b,State &s)
 {
     // update State.
     std::pair<int,std::unordered_set<int> > clash = checkClashBidwithState(b,s);
-    if (clash.second.size()==0){
+    if (clash.second.size()==0)
+    {
         // if no clash, simply add to the state
         s.Bids_Company[b.Company] = b.Bid_Id;
+        s.Profit += b.Price;
         for (auto it = b.Regions.begin(); it != b.Regions.end(); it++){
             int region = *it;
             s.Regions_assigned[region] = b.Bid_Id;
@@ -116,12 +122,13 @@ void addBidtoState(Bid b,State &s)
 int main(){
 
     //take input file as argument
-    std::string infile = "/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/1.txt";
+    std::string infile = "1.txt";
     std::ifstream f_in;
-    f_in.open(infile);
-    //std::cout << f_in.is_open();
+    f_in.open("1.txt");
+    std::cout << f_in.is_open() << std::endl;
 
-    if (f_in.is_open()){
+    if (f_in.is_open())
+    {
 
         f_in >> Time;
         int M,B,C;
@@ -142,9 +149,11 @@ int main(){
             std::string region = "";
 
             f_in >> comp_i;
+            // std::cout << comp_i << " Company ID, ";
             f_in >> price_i;
 
             xi.Bid_Id = i;
+            xi.Company = comp_i;
             xi.Price = price_i;
 
             f_in >> region;
@@ -165,7 +174,22 @@ int main(){
         Start = 0;
         std::cout << Sorted_Bids[0].Price;
         State Curr;
+        Curr.Regions_assigned = std::vector<int> (M,-1);
+        Curr.Bids_Company = std::vector<int> (C,-1);
         Curr.Profit = 0;
+        for (int i = 0 ; i < B ; i ++)
+        {
+            std::cout << "Step " << i << std::endl;
+            addBidtoState(allBids[i], Curr);
+            // for (int i = 0 ; i < C  ; i ++)
+            // {
+            //     // if (Curr.Bids_Company[i] != -1)
+            //         std::cout << Curr.Bids_Company[i] << " Bid, ";
+            // }
+            std::cout << Curr.Profit << " Cost after Step " << i << " over! \n";
+            // std::cout << "Step " << i ;
+        }
+        std::cout << Curr.Profit << std::endl;
 //        while (Start < B)
 //        {
 //            State ith = HillClimb();
