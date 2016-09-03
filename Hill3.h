@@ -5,62 +5,30 @@
 #include "structs.h"
 #include "State_Manip.h"
 
-// State HillClimb(State &s, int i,int cnt, int C, int passes);
-
-// State randomHillClimb(State &s, int i,int cnt, int C, int passes){
-
-//     // start state determined by var State
-//     bool chk = false;
-//     std::set<Bid> bidsofCompany = Company_Bids[i];
-//     int max_profit = INT_MIN;
-//     Bid bestbid;
-//     Types::Price_Bids best_clash;
-//     outfile << "Company " << i << std::endl;
-//     for (auto it = bidsofCompany.begin(); it != bidsofCompany.end(); it++){
-//         Bid b = *it;
-//         Types::Price_Bids clash = checkClashBidwithState(b,s);
-//         if ((b.Price - clash.first) > max_profit)
-//         {
-//             max_profit = b.Price - clash.first;
-//             bestbid = b;
-//             best_clash = clash;
-//         }
-//     }
-//     if (max_profit > 0)
-//     {
-//         addBidtoState(bestbid, s, best_clash);
-
-//     }
-//     outfile << "Company " << i << "Profit : " << s.Profit << std::endl;
-//     if (cnt >= C*passes){
-//         return s;
-//     }
-//     else if (cnt>=2*C){
-//         return HillClimb(s,(i+1)%C,cnt+1,C, passes);
-//     }
-//     else{
-//         int randomComp = i;
-//         while (randomComp == i){
-//         //rnjesus to get random state for start
-//             std::mt19937 rng;
-//             rng.seed(std::random_device()());
-//             std::uniform_int_distribution<std::mt19937::result_type> randomCompGen(0,C-1);
-//             randomComp = randomCompGen(rng);
-//         }
-//         return randomHillClimb(s,randomComp,cnt+1,C, passes);
-//     }
-// }
-
-State HillClimb3(State &s, int i, int passes){
+State HillClimb3(State &s, int i, int cnt, int passes){
     // start state determined by var State
-    for (int cnt = 0 ; cnt <= passes*B ; cnt ++)
-    {
+    if (cnt > passes*B){
+        return s;
+    }
+    else{
         Bid b = Sorted_Bids[i];
+        bool chk2 = addBidtoState(b,s,clash);
+        return HillClimb3(s, (i+1)%B, cnt+1, passes);
         Types::Price_Bids clash = checkClashBidwithState(b, s);
-        addBidtoState(b,s,clash);
-        i = (i+1)%B;
     }
     std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
+    }
+//    for (int cnt = 0 ; cnt <= passes*B ; cnt ++)
+//    {
+//        Bid b = Sorted_Bids[i];
+//        Types::Price_Bids clash = checkClashBidwithState(b, s);
+//        bool chk2 = addBidtoState(b,s,clash);
+//        i = (i+1)%B;
+//        if (cnt%B == 0)
+//            std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
+//    }
+//    std::cout << "Profit->" << s.Profit << std::endl;
+
 }
 
 void Restart_Hill3()
@@ -68,7 +36,7 @@ void Restart_Hill3()
     // RANDOM RESTART FOR NOOB LS:
     State BestState;
     BestState.Profit = 0;
-    for (int i = 0 ; i < B ; i ++)
+    for (int i = 0 ; i < 3*C ; i ++)
     {
         State Curr2;
         Curr2.Profit = 0;
@@ -99,13 +67,42 @@ void Restart_Hill3()
         
         addBidtoState(randomBid, Curr2, empty_clash);
 
-        Curr2 = HillClimb3(Curr2 , (i+1)%B , 2);
-        if (Curr2.Profit > BestState.Profit)
+        int passes = 10;
+        if  ((B/C)>=3 && 5>(B/C)){
+            passes = 2*(B/C)-1;
+        }
+        else if ((B/C)<=2 ){
+            passes = 3*(B/C) + 1;
+        }
+        else{
+            if (C>=5){
+                passes = 6;
+            }
+            else{
+                passes = 4;
+            }
+        }
+
+        Curr2 = HillClimb3(Curr2 , (i+1)%B, 0, passes);
+        //std::cout << Curr2.Profit << std::endl;
+
+        if (Curr2.Profit > BestState.Profit){
             BestState = Curr2;
-        outfile << "\n \n \n";
+        }
+        //outfile << "\n \n \n";
     }
     outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
     outfile << "Profit : " << BestState.Profit << std::endl;
+
+//    for (int j = 0;j<C;j++){
+
+//        int bid = BestState.Bids_Company[j]
+//        if (bid != -1){
+//           for (int k = 0;k<M;k++){
+
+//            }
+//        }
+//    }
 }
 
 #endif

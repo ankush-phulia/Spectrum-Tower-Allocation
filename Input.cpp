@@ -1,7 +1,6 @@
 #include "structs.h"
 #include "State_Manip.h"
 #include "Hill1.h"
-#include "Hill2.h"
 #include "Hill3.h"
 
 // NOT NEEDED?
@@ -17,32 +16,10 @@ int Avg_regions, Max_regions;
 time_t Start_Time;
 // approach 2 -> 1 company ki keep adding/swapping
 
-//int getCompanyWithMostBids(Vec_of_Maps Company_Bids, int C){
-//    int maxbids = 0;
-//    int maxcomp = 0;
-//    for (int i = 0;i<C;i++){
-//        int k = Company_Bids[i].size();
-//        if (k>maxbids){
-//            maxbids = k;
-//            maxcomp = i;
-//        }
-//        else if (k==maxbids){
-//            double random = ((double) rand() / (RAND_MAX)) + 1 ;
-//            if (random>=0.5){
-//                maxcomp = i;
-//            }
-//        }
-//    }
-//    return maxcomp;
-//}
-
-// global sorted array of bids.
-
-
-
 int main()
 {
 
+    time_t start_Time = time(0);
     //take input file as argument
     std::string infile = "20.txt";
     std::ifstream f_in;
@@ -146,6 +123,9 @@ int main()
         time_t taken = end_Time - start_Time;
         outfile << "Time taken : " << taken << std::endl;
 
+        Restart_Hill3();
+        time_t taken3 = time(0) - end_Time;
+        outfile << "Time taken : " << taken3 << std::endl;
     }
     return 0;
 }

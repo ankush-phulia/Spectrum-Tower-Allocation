@@ -60,40 +60,42 @@ State HillClimb(State &s, int i,int cnt, int C, int passes){
     int noBids = bidsofCompany.size();
     std::vector<int> bidsofCompanyVec (noBids);
     int j = 0;
-
+    double random = ((double) rand() / (RAND_MAX));
     //get random bid id
     std::uniform_int_distribution<std::mt19937::result_type> randomBidGen(0,noBids-1);
     // std::mt19937 rng;
     int randomBidId = randomBidGen(rng);
     Types::Price_Bids rand_clash;
 
-    for (auto it = bidsofCompany.begin(); it != bidsofCompany.end(); it++){
-        Bid b = *it;
-        bidsofCompanyVec[j] = b.Bid_Id;
-        //find the clash
-        Types::Price_Bids clash = checkClashBidwithState(b,s);
-        if (j==randomBidId){
-            rand_clash = clash;
-        }
-
-        if ((b.Price - clash.first) > max_profit) 
-        {
-            max_profit = b.Price - clash.first;
-            bestbid = b;
-            best_clash = clash;
-        }
-        j ++;
-    }
-    //get a random double
-    double random = ((double) rand() / (RAND_MAX));
-    // std::cout << random << std::endl;
     if (random<=0.0008){
         Bid randomBid = allBids[bidsofCompanyVec[randomBidId]];
+        rand_clash = checkClashBidwithState(randomBid, s);
         addBidtoState(randomBid, s, rand_clash);
     }
     else{
+            for (auto it = bidsofCompany.begin(); it != bidsofCompany.end(); it++){
+                Bid b = *it;
+                bidsofCompanyVec[j] = b.Bid_Id;
+                //find the clash
+                Types::Price_Bids clash = checkClashBidwithState(b,s);
+                if (j==randomBidId){
+                    rand_clash = clash;
+                }
+
+                if ((b.Price - clash.first) > max_profit) 
+                {
+                    max_profit = b.Price - clash.first;
+                    bestbid = b;
+                    best_clash = clash;
+                }
+                j ++;
+            }
             addBidtoState(bestbid, s, best_clash);
     }
+
+
+    //get a random double
+    // std::cout << random << std::endl;
     // outfile << "Company " << i << "Profit : " << s.Profit << std::endl;
     if ((time(0) - Start_Time > (60*Time - 10))  || cnt >= C*passes){
         return s;
@@ -143,8 +145,8 @@ void Restart_Hill()
         std::unordered_set<int> empty_set;
         Types::Price_Bids empty_clash = std::make_pair(0, empty_set);
         addBidtoState(randomBid, Curr2, empty_clash);
-        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 3);
-        // outfile << Curr2.Profit << std::endl;
+
+        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 3); //number of passes
         if (Curr2.Profit > BestState.Profit)
             BestState = Curr2;
         // outfile << 
