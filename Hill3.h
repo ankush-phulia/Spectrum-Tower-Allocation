@@ -59,9 +59,8 @@ State HillClimb3(State &s, int i, int passes){
         Types::Price_Bids clash = checkClashBidwithState(b, s);
         addBidtoState(b,s,clash);
         i = (i+1)%B;
-        if (cnt%B == 0)
-            std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
     }
+    std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
 }
 
 void Restart_Hill3()
@@ -97,6 +96,7 @@ void Restart_Hill3()
         Bid randomBid = allBids[randomBidId];
         std::unordered_set<int> empty_set;
         Types::Price_Bids empty_clash = std::make_pair(0, empty_set);
+        
         addBidtoState(randomBid, Curr2, empty_clash);
 
         Curr2 = HillClimb3(Curr2 , (i+1)%B , 2);

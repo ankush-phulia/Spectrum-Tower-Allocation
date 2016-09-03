@@ -13,6 +13,7 @@
 #include <set>
 #include <functional>
 #include <limits.h>
+#include <ctime>
 
 int Start;
 extern double Time;
@@ -49,6 +50,10 @@ extern Types::Vec_of_Maps Company_Bids;
 extern std::vector<Bid> allBids;
 extern std::vector<Bid> Sorted_Bids;
 extern std::ofstream outfile;
+extern std::mt19937 rng;
+extern int Avg_regions;
+extern int Max_regions;
+extern time_t Start_Time;
 //  Array of vector(unordered map) of bids Company -> Set of Bids. GLOBAL CONST
 
 #endif

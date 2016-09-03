@@ -12,6 +12,9 @@ Types::Vec_of_Maps Company_Bids;
 std::vector<Bid> allBids;
 std::vector<Bid> Sorted_Bids;
 std::ofstream outfile;
+std::mt19937 rng;
+int Avg_regions, Max_regions;
+time_t Start_Time;
 // approach 2 -> 1 company ki keep adding/swapping
 
 //int getCompanyWithMostBids(Vec_of_Maps Company_Bids, int C){
@@ -41,16 +44,19 @@ int main()
 {
 
     //take input file as argument
-    std::string infile = "4.txt";
+    std::string infile = "20.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("HRandom_4.txt");
+    outfile.open("RandomShiz.txt");
     outfile << f_in.is_open() << std::endl;
+    Avg_regions = 0 ;
+    Max_regions = 0 ;
 
     if (f_in.is_open())
     {
 
+        Start_Time = time(0);
         f_in >> Time;
         f_in >> M >> B >> C;
         outfile << M << " " <<  B << " " << C << std::endl;
@@ -136,6 +142,9 @@ int main()
 //            Start += 1;
 //        }
         Restart_Hill();
+        time_t end_Time = time(0);
+        time_t taken = end_Time - start_Time;
+        outfile << "Time taken : " << taken << std::endl;
 
     }
     return 0;
