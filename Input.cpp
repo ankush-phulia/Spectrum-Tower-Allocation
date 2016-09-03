@@ -1,7 +1,6 @@
 #include "structs.h"
 #include "State_Manip.h"
 #include "Hill1.h"
-#include "Hill2.h"
 #include "Hill3.h"
 
 // NOT NEEDED?
@@ -14,39 +13,17 @@ std::vector<Bid> Sorted_Bids;
 std::ofstream outfile;
 // approach 2 -> 1 company ki keep adding/swapping
 
-//int getCompanyWithMostBids(Vec_of_Maps Company_Bids, int C){
-//    int maxbids = 0;
-//    int maxcomp = 0;
-//    for (int i = 0;i<C;i++){
-//        int k = Company_Bids[i].size();
-//        if (k>maxbids){
-//            maxbids = k;
-//            maxcomp = i;
-//        }
-//        else if (k==maxbids){
-//            double random = ((double) rand() / (RAND_MAX)) + 1 ;
-//            if (random>=0.5){
-//                maxcomp = i;
-//            }
-//        }
-//    }
-//    return maxcomp;
-//}
-
-// global sorted array of bids.
-
-
-
 int main()
 {
 
+    time_t start_Time = time(0);
     //take input file as argument
-    std::string infile = "4.txt";
+    std::string infile = "/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/20.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("HRandom_4.txt");
-    outfile << f_in.is_open() << std::endl;
+    outfile.open("/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/output.txt");
+    //outfile << f_in.is_open() << std::endl;
 
     if (f_in.is_open())
     {
@@ -135,8 +112,9 @@ int main()
 //                Curr = ith;
 //            Start += 1;
 //        }
-        Restart_Hill();
-
+        Restart_Hill3();
+    time_t taken = time(0) - start_Time;
+    std::cout << taken << std::endl;
     }
     return 0;
 }

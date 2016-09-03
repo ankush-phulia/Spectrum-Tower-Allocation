@@ -13,6 +13,7 @@
 #include <set>
 #include <functional>
 #include <limits.h>
+#include <ctime>
 
 int Start;
 extern double Time;

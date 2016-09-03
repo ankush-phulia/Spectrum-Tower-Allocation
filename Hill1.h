@@ -115,7 +115,7 @@ void Restart_Hill()
     // RANDOM RESTART FOR NOOB LS:
     State BestState;
     BestState.Profit = 0;
-    for (int i = 0 ; i < C ; i ++)
+    for (int i = 0 ; i < C ; i ++) //C = number of restarts
     {
         State Curr2;
         Curr2.Profit = 0;
@@ -145,7 +145,7 @@ void Restart_Hill()
         Types::Price_Bids empty_clash = std::make_pair(0, empty_set);
         addBidtoState(randomBid, Curr2, empty_clash);
 
-        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 3);
+        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 3); //number of passes
         if (Curr2.Profit > BestState.Profit)
             BestState = Curr2;
         outfile << "\n \n \n";

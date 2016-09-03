@@ -51,7 +51,7 @@ void deletandAdd(Bid b, std::pair<int, std::unordered_set<int> > &clash, State &
     deleteState(clash.second,s);
     s.Bids_Company[b.Company] = b.Bid_Id;
     s.Profit += b.Price;
-    outfile << "Adding Bid " << b.Bid_Id << std::endl;
+    //outfile << "Adding Bid " << b.Bid_Id << std::endl;
     for (auto it = b.Regions.begin(); it != b.Regions.end(); it++)
     {
         int region = *it;
@@ -81,10 +81,10 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash)
             deletandAdd(b,clash,s);
             return true;
         }
-        else if(b.Price >= clash.first*0.9){
+        else if(b.Price >= clash.first*0.8){ //multiplication factor
             //randomly chose one
             double random = ((double) rand() / (RAND_MAX)) ;
-            if (random >= 0.4)
+            if (random >= 0.6) //probability factor
             {
                 deletandAdd(b,clash,s);
                 return true;
