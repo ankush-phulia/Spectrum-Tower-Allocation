@@ -19,21 +19,19 @@ time_t Start_Time;
 int main()
 {
 
-    time_t start_Time = time(0);
+    Start_Time = time(0);
     //take input file as argument
-    std::string infile = "20.txt";
+    std::string infile = "/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/3.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("RandomShiz.txt");
+    outfile.open("/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/output1.txt");
     outfile << f_in.is_open() << std::endl;
     Avg_regions = 0 ;
     Max_regions = 0 ;
 
     if (f_in.is_open())
     {
-
-        Start_Time = time(0);
         f_in >> Time;
         f_in >> M >> B >> C;
         outfile << M << " " <<  B << " " << C << std::endl;
@@ -92,24 +90,7 @@ int main()
         std::sort(Sorted_Bids.begin(),Sorted_Bids.end());
         //outfile << getCompanyWithMostBids(Company_Bids,C) << '\n' ;
         Start = 0;
-        // outfile << Sorted_Bids[0].Price;
-        // ABSOLUTE NOOB:
-        // for (int i = 0 ; i < B ; i ++)
-        // {
-        //     outfile << "Step " << i << std::endl;
-        //     Bid ith = allBids[i];
-        //     // outfile << ith.Company << " Company, " << ith.Price << " price of ith bid " << i << std::endl;
-        //     Price_Bids clash = checkClashBidwithState(ith, Curr);
-        //     addBidtoState((Bid)ith, Curr, clash);
-        //     // addBidtoState((Bid)(allBids[i].get()), Curr);            
-        //     // for (int i = 0 ; i < C  ; i ++)
-        //     // {
-        //     //     // if (Curr.Bids_Company[i] != -1)
-        //     //         outfile << Curr.Bids_Company[i] << " Bid, ";
-        //     // }
-        //     outfile << Curr.Profit << " Cost after Step " << i << " over! \n";
-        //     // outfile << "Step " << i ;
-        // }
+
         outfile << Curr.Profit << std::endl;
 //        while (Start < B)
 //        {
@@ -118,13 +99,13 @@ int main()
 //                Curr = ith;
 //            Start += 1;
 //        }
-        Restart_Hill();
-        time_t end_Time = time(0);
-        time_t taken = end_Time - start_Time;
-        outfile << "Time taken : " << taken << std::endl;
+//        Restart_Hill();
+//        time_t end_Time = time(0);
+//        time_t taken = end_Time - start_Time;
+//        outfile << "Time taken : " << taken << std::endl;
 
         Restart_Hill3();
-        time_t taken3 = time(0) - end_Time;
+        time_t taken3 = time(0) - Start_Time;
         outfile << "Time taken : " << taken3 << std::endl;
     }
     return 0;

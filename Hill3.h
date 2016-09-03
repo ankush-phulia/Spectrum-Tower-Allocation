@@ -12,22 +12,11 @@ State HillClimb3(State &s, int i, int cnt, int passes){
     }
     else{
         Bid b = Sorted_Bids[i];
+        Types::Price_Bids clash = checkClashBidwithState(b, s);
         bool chk2 = addBidtoState(b,s,clash);
         return HillClimb3(s, (i+1)%B, cnt+1, passes);
-        Types::Price_Bids clash = checkClashBidwithState(b, s);
     }
     std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
-    }
-//    for (int cnt = 0 ; cnt <= passes*B ; cnt ++)
-//    {
-//        Bid b = Sorted_Bids[i];
-//        Types::Price_Bids clash = checkClashBidwithState(b, s);
-//        bool chk2 = addBidtoState(b,s,clash);
-//        i = (i+1)%B;
-//        if (cnt%B == 0)
-//            std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
-//    }
-//    std::cout << "Profit->" << s.Profit << std::endl;
 
 }
 
@@ -43,20 +32,7 @@ void Restart_Hill3()
         Curr2.Bids_Company = std::vector<int> (C,-1);
         Curr2.Regions_assigned = std::vector<int> (M,-1);
 
-        //rnjesus to get random state for start
-//        std::mt19937 rng;
-//        rng.seed(std::random_device()());
-//        std::uniform_int_distribution<std::mt19937::result_type> randomBidGen(0,Company_Bids[i].size()-1);
-
-//        //add this to empty state
-//        int randomBid = randomBidGen(rng);
-//        Bid b = (Company_Bids[i])[randomBid];
-//        Curr2.Bids_Company[b.Company] = b.Bid_Id;
-//        Curr2.Profit += b.Price;
-//        for (auto it = b.Regions.begin(); it != b.Regions.end(); it++){
-//            int region = *it;
-//            Curr2.Regions_assigned[region] = b.Bid_Id;
-//        }
+        //random start state added
         std::mt19937 rng;
         rng.seed(std::random_device()());
         std::uniform_int_distribution<std::mt19937::result_type> randomBidGen(0,B-1);
@@ -89,20 +65,15 @@ void Restart_Hill3()
         if (Curr2.Profit > BestState.Profit){
             BestState = Curr2;
         }
+        if ((time(0) - Start_Time > (60*Time - 9))){
+            break;
+        }
         //outfile << "\n \n \n";
     }
     outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
     outfile << "Profit : " << BestState.Profit << std::endl;
-
-//    for (int j = 0;j<C;j++){
-
-//        int bid = BestState.Bids_Company[j]
-//        if (bid != -1){
-//           for (int k = 0;k<M;k++){
-
-//            }
-//        }
-//    }
+//    for (int i = 0 ; i < C ; i ++)
+//        outfile << BestState.Bids_Company[i] << std::endl;
 }
 
 #endif

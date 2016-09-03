@@ -28,7 +28,12 @@ struct Bid{
 
     //to compare based on price
     bool operator < (const Bid& str) const{
-        return (Price/Regions.size()) >= (str.Price/str.Regions.size());
+        if ((Regions.size()) != (str.Regions.size())){
+            return (Regions.size()) < (str.Regions.size());
+        }
+        else{
+            return Price >= str.Price;
+        }
         //return (Price) >= (str.Price);
     }
 
