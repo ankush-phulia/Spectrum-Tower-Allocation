@@ -2,6 +2,7 @@
 #include "State_Manip.h"
 #include "Hill1.h"
 #include "Hill2.h"
+#include "Hill3.h"
 
 // NOT NEEDED?
 double Time;
@@ -40,11 +41,11 @@ int main()
 {
 
     //take input file as argument
-    std::string infile = "3.txt";
+    std::string infile = "4.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("HRandom_3.txt");
+    outfile.open("HRandom_4.txt");
     outfile << f_in.is_open() << std::endl;
 
     if (f_in.is_open())

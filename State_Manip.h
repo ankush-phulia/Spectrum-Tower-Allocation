@@ -81,10 +81,10 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash)
             deletandAdd(b,clash,s);
             return true;
         }
-        else if(clash.first == b.Price){
+        else if(b.Price >= clash.first*0.9){
             //randomly chose one
-            double random = ((double) rand() / (RAND_MAX)) + 1 ;
-            if (random >= 0.5)
+            double random = ((double) rand() / (RAND_MAX)) ;
+            if (random >= 0.4)
             {
                 deletandAdd(b,clash,s);
                 return true;
@@ -93,12 +93,6 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash)
             {
                 return false;
             }
-        }
-        else if (b.Price >=  (0.8*clash.first)){
-            // With some probability PICK THIS STATE!! TODO            
-            //(clash.first > b.Price){
-            //keep the original states
-            return false;
         }
     }
 }
