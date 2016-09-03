@@ -94,7 +94,8 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash)
                 return false;
             }
         }
-        else{
+        else if (b.Price >=  (0.8*clash.first)){
+            // With some probability PICK THIS STATE!! TODO            
             //(clash.first > b.Price){
             //keep the original states
             return false;
