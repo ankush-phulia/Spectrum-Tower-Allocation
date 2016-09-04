@@ -148,20 +148,7 @@ void Restart_Hill()
         Curr2.Bids_Company = std::vector<int> (C,-1);
         Curr2.Regions_assigned = std::vector<int> (M,-1);
 
-        //rnjesus to get random state for start
-//        std::mt19937 rng;
-//        rng.seed(std::random_device()());
-//        std::uniform_int_distribution<std::mt19937::result_type> randomBidGen(0,Company_Bids[i].size()-1);
-
-//        //add this to empty state
-//        int randomBid = randomBidGen(rng);
-//        Bid b = (Company_Bids[i])[randomBid];
-//        Curr2.Bids_Company[b.Company] = b.Bid_Id;
-//        Curr2.Profit += b.Price;
-//        for (auto it = b.Regions.begin(); it != b.Regions.end(); it++){
-//            int region = *it;
-//            Curr2.Regions_assigned[region] = b.Bid_Id;
-//        }
+        //random start state added
         std::mt19937 rng;
         rng.seed(std::random_device()());
         std::uniform_int_distribution<std::mt19937::result_type> randomBidGen(0,B-1);
@@ -170,6 +157,16 @@ void Restart_Hill()
         std::unordered_set<int> empty_set;
         Types::Price_Bids empty_clash = std::make_pair(0, std::make_pair(0, empty_set));
         addBidtoState(randomBid, Curr2, empty_clash);
+
+        // randomBidId = randomBidGen(rng)%B;
+        // randomBid = allBids[randomBidId];
+        // Types::Price_Bids clash2 = checkClashBidwithState(randomBid,Curr2);
+        // while (clash2.second.size() != 0){
+        //     randomBidId = randomBidGen(rng)%B;
+        //     randomBid = allBids[randomBidId];
+        //     clash2 = checkClashBidwithState(randomBid,Curr2);
+        // }
+        // addBidtoState(randomBid, Curr2, clash2);
 
         Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 4); //number of passes
         if (Curr2.Profit > BestState.Profit)
@@ -193,6 +190,8 @@ void Restart_Hill()
     }
     outfile << "#";
     outfile << "\n Profit P1 : " << p << std::endl;
+    
+    //outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
 }
 
 #endif

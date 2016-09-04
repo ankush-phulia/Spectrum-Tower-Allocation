@@ -25,8 +25,8 @@ int main()
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("RandomShiz.txt");
-    outfile << f_in.is_open() << std::endl;
+    outfile.open("output.txt");
+    //outfile << f_in.is_open() << std::endl;
     Avg_regions = 0 ;
     Max_regions = 0 ;
 
@@ -34,7 +34,7 @@ int main()
     {
         f_in >> Time;
         f_in >> M >> B >> C;
-        outfile << M << " " <<  B << " " << C << std::endl;
+        std::cout << M << " " <<  B << " " << C << std::endl;
         //std::unordered_map<int, Bid> X;
         Company_Bids = std::vector<std::set<Bid> > (C);
         allBids = std::vector<Bid> (B);
@@ -124,6 +124,49 @@ int main()
         // Restart_Hill3();
         // time_t taken3 = time(0) - Start_Time;
         // outfile << "Time taken : " << taken3 << std::endl;
+
+        std::future<State> parallel_process[4];
+        //Launch a group of processes
+        for (int i = 0; i < 4; i++) {
+            //call restart hill in each
+            //SOME ERROR OVER HERE
+            parallel_process[i] = std::async(std::launch::async, Restart_Hill3);;
+        }
+
+        //get the values from each
+        State BestStates[4];
+        for (int i = 0; i < 4; i++){
+            BestStates[i] = parallel_process[i].get();
+        }
+
+//        //join all of them
+//        for (int i = 0; i < 4; i++) {
+//            parallel_process[i].join();
+//        }
+
+        //choose best out of them
+        State bestestState = BestStates[0];
+        for (int i = 1;i<4;i++){
+            if (BestStates[i].Profit>bestestState.Profit){
+                bestestState = BestStates[i];
+            }
+        }
+
+        std::cout << bestestState.Profit << std::endl;
+        //print the result
+        for (int i = 0 ; i < C ; i ++){
+            int k = bestestState.Bids_Company[i];
+            if (k!=-1){
+                outfile << k << " ";
+            }
+        }
+        outfile << "#";
+
+        //happy debugging lols
+
+        //Restart_Hill3();
+        time_t taken3 = time(0) - Start_Time;
+        std::cout << "Time taken : " << taken3 << std::endl;
     }
     return 0;
 }

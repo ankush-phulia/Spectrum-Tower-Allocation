@@ -36,30 +36,22 @@ State HillClimb3(State &s, int i, int cnt, int passes){
 
 void Restart_Hill3()
 {
+    std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
+}
+
+State Restart_Hill3()
+{
     // RANDOM RESTART FOR NOOB LS:
     State BestState;
     BestState.Profit = 0;
-    for (int i = 0 ; i < 3*C ; i ++)
+    for (int i = 0 ; i < 4*C ; i ++) //number of restarts
     {
         State Curr2;
         Curr2.Profit = 0;
         Curr2.Bids_Company = std::vector<int> (C,-1);
         Curr2.Regions_assigned = std::vector<int> (M,-1);
 
-        //rnjesus to get random state for start
-//        std::mt19937 rng;
-//        rng.seed(std::random_device()());
-//        std::uniform_int_distribution<std::mt19937::result_type> randomBidGen(0,Company_Bids[i].size()-1);
-
-//        //add this to empty state
-//        int randomBid = randomBidGen(rng);
-//        Bid b = (Company_Bids[i])[randomBid];
-//        Curr2.Bids_Company[b.Company] = b.Bid_Id;
-//        Curr2.Profit += b.Price;
-//        for (auto it = b.Regions.begin(); it != b.Regions.end(); it++){
-//            int region = *it;
-//            Curr2.Regions_assigned[region] = b.Bid_Id;
-//        }
+        //random start state added
         std::mt19937 rng;
         rng.seed(std::random_device()());
         std::uniform_int_distribution<std::mt19937::result_type> randomBidGen(0,B-1);
@@ -70,19 +62,29 @@ void Restart_Hill3()
         
         addBidtoState(randomBid, Curr2, empty_clash);
 
+        randomBidId = randomBidGen(rng)%B;
+        randomBid = allBids[randomBidId];
+        Types::Price_Bids clash2 = checkClashBidwithState(randomBid,Curr2);
+        while (clash2.second.size() != 0){
+            randomBidId = randomBidGen(rng)%B;
+            randomBid = allBids[randomBidId];
+            clash2 = checkClashBidwithState(randomBid,Curr2);
+        }
+        addBidtoState(randomBid, Curr2, clash2);
+
         int passes = 10;
         if  ((B/C)>=3 && 5>(B/C)){
-            passes = 2*(B/C)-1;
+            passes = 2*(B/C) + 1;
         }
         else if ((B/C)<=2 ){
-            passes = 3*(B/C) + 1;
+            passes = 3*(B/C) + 3;
         }
         else{
             if (C>=5){
-                passes = 6;
+                passes = 7;
             }
             else{
-                passes = 4;
+                passes = 5;
             }
         }
         outfile << "Start : " << randomBidId << std::endl;
@@ -92,20 +94,21 @@ void Restart_Hill3()
         if (Curr2.Profit > BestState.Profit){
             BestState = Curr2;
         }
+        if ((time(0) - Start_Time > (60*Time - 9))){
+            break;
+        }
         //outfile << "\n \n \n";
     }
-    outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
-    outfile << "Profit : " << BestState.Profit << std::endl;
-
-//    for (int j = 0;j<C;j++){
-
-//        int bid = BestState.Bids_Company[j]
-//        if (bid != -1){
-//           for (int k = 0;k<M;k++){
-
-//            }
+    //outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
+    std::cout << "Profit : " << BestState.Profit << std::endl;
+//    for (int i = 0 ; i < C ; i ++){
+//        int k = BestState.Bids_Company[i];
+//        if (k!=-1){
+//            outfile << k << " ";
 //        }
 //    }
+//    outfile << "#";
+    return BestState;
 }
 
 #endif
