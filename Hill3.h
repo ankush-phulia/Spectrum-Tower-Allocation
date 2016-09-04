@@ -8,15 +8,20 @@
 State HillClimb3(State &s, int i, int cnt, int passes){
     // start state determined by var State
     if (cnt > passes*B){
+        outfile << "Passes done \n";
         return s;
     }
     else{
+        if (cnt%B == 0)
+            std::cout << cnt << " : cnt \n";
         Bid b = Sorted_Bids[i];
-        bool chk2 = addBidtoState(b,s,clash);
-        return HillClimb3(s, (i+1)%B, cnt+1, passes);
         Types::Price_Bids clash = checkClashBidwithState(b, s);
+        bool chk2 = addBidtoState(b,s,clash);
+        if (cnt%B == 0)
+            std::cout << "YO" << s.Profit << std::endl;
+        return HillClimb3(s, (i+1)%B, cnt+1, passes);
     }
-    std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
+    // std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
     }
 //    for (int cnt = 0 ; cnt <= passes*B ; cnt ++)
 //    {
@@ -28,8 +33,6 @@ State HillClimb3(State &s, int i, int cnt, int passes){
 //            std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
 //    }
 //    std::cout << "Profit->" << s.Profit << std::endl;
-
-}
 
 void Restart_Hill3()
 {
@@ -63,7 +66,7 @@ void Restart_Hill3()
         int randomBidId = randomBidGen(rng)%B;
         Bid randomBid = allBids[randomBidId];
         std::unordered_set<int> empty_set;
-        Types::Price_Bids empty_clash = std::make_pair(0, empty_set);
+        Types::Price_Bids empty_clash = std::make_pair(0,std::make_pair(0, empty_set));
         
         addBidtoState(randomBid, Curr2, empty_clash);
 
@@ -82,9 +85,9 @@ void Restart_Hill3()
                 passes = 4;
             }
         }
-
+        outfile << "Start : " << randomBidId << std::endl;
         Curr2 = HillClimb3(Curr2 , (i+1)%B, 0, passes);
-        //std::cout << Curr2.Profit << std::endl;
+        // std::cout << Curr2.Profit << std::endl;
 
         if (Curr2.Profit > BestState.Profit){
             BestState = Curr2;

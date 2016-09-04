@@ -19,9 +19,9 @@ time_t Start_Time;
 int main()
 {
 
-    time_t start_Time = time(0);
+    Start_Time = time(0);
     //take input file as argument
-    std::string infile = "20.txt";
+    std::string infile = "18.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
@@ -32,8 +32,6 @@ int main()
 
     if (f_in.is_open())
     {
-
-        Start_Time = time(0);
         f_in >> Time;
         f_in >> M >> B >> C;
         outfile << M << " " <<  B << " " << C << std::endl;
@@ -110,7 +108,7 @@ int main()
         //     outfile << Curr.Profit << " Cost after Step " << i << " over! \n";
         //     // outfile << "Step " << i ;
         // }
-        outfile << Curr.Profit << std::endl;
+        // outfile << Curr.Profit << std::endl;
 //        while (Start < B)
 //        {
 //            State ith = HillClimb();
@@ -120,12 +118,12 @@ int main()
 //        }
         Restart_Hill();
         time_t end_Time = time(0);
-        time_t taken = end_Time - start_Time;
+        time_t taken = end_Time - Start_Time;
         outfile << "Time taken : " << taken << std::endl;
-
-        Restart_Hill3();
-        time_t taken3 = time(0) - end_Time;
-        outfile << "Time taken : " << taken3 << std::endl;
+        // outfile << "Calling Hill3 \n";
+        // Restart_Hill3();
+        // time_t taken3 = time(0) - Start_Time;
+        // outfile << "Time taken : " << taken3 << std::endl;
     }
     return 0;
 }
