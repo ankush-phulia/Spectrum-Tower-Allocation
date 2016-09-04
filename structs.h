@@ -14,6 +14,8 @@
 #include <functional>
 #include <limits.h>
 #include <ctime>
+#include <thread>
+#include <future>
 
 int Start;
 extern double Time;

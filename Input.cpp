@@ -21,11 +21,11 @@ int main()
 
     Start_Time = time(0);
     //take input file as argument
-    std::string infile = "16.txt";
+    std::string infile = "/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/16.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("output.txt");
+    outfile.open("/home/ankush/Desktop/COL 333 C++/output.txt");
     //outfile << f_in.is_open() << std::endl;
     Avg_regions = 0 ;
     Max_regions = 0 ;
@@ -104,7 +104,46 @@ int main()
 //        time_t taken = end_Time - start_Time;
 //        outfile << "Time taken : " << taken << std::endl;
 
-        Restart_Hill3();
+        std::future<State> parallel_process[4];
+        //Launch a group of processes
+        for (int i = 0; i < 4; i++) {
+            //call restart hill in each
+            //SOME ERROR OVER HERE
+            parallel_process[i] = std::async(std::launch::async, Restart_Hill3);;
+        }
+
+        //get the values from each
+        State BestStates[4];
+        for (int i = 0; i < 4; i++){
+            BestStates[i] = parallel_process[i].get();
+        }
+
+//        //join all of them
+//        for (int i = 0; i < 4; i++) {
+//            parallel_process[i].join();
+//        }
+
+        //choose best out of them
+        State bestestState = BestStates[0];
+        for (int i = 1;i<4;i++){
+            if (BestStates[i].Profit>bestestState.Profit){
+                bestestState = BestStates[i];
+            }
+        }
+
+        std::cout << bestestState.Profit << std::endl;
+        //print the result
+        for (int i = 0 ; i < C ; i ++){
+            int k = bestestState.Bids_Company[i];
+            if (k!=-1){
+                outfile << k << " ";
+            }
+        }
+        outfile << "#";
+
+        //happy debugging lols
+
+        //Restart_Hill3();
         time_t taken3 = time(0) - Start_Time;
         std::cout << "Time taken : " << taken3 << std::endl;
     }

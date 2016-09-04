@@ -20,7 +20,7 @@ State HillClimb3(State &s, int i, int cnt, int passes){
 
 }
 
-void Restart_Hill3()
+State Restart_Hill3()
 {
     // RANDOM RESTART FOR NOOB LS:
     State BestState;
@@ -82,14 +82,14 @@ void Restart_Hill3()
     }
     //outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
     std::cout << "Profit : " << BestState.Profit << std::endl;
-    for (int i = 0 ; i < C ; i ++){
-        int k = BestState.Bids_Company[i];
-        if (k!=-1){
-            outfile << k << " ";
-        }
-    }
-    outfile << "#";
-
+//    for (int i = 0 ; i < C ; i ++){
+//        int k = BestState.Bids_Company[i];
+//        if (k!=-1){
+//            outfile << k << " ";
+//        }
+//    }
+//    outfile << "#";
+    return BestState;
 }
 
 #endif
