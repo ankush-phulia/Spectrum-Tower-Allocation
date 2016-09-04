@@ -72,7 +72,7 @@ void Restart_Hill()
     rng.seed(std::random_device()());
 
 
-    for (int i = 0 ; i < 5*C/2 ; i ++)
+    for (int i = 0 ; i < 4*C ; i ++)
     {
         State Curr2;
         Curr2.Profit = 0;
@@ -89,7 +89,17 @@ void Restart_Hill()
         Types::Price_Bids empty_clash = std::make_pair(0, empty_set);
         addBidtoState(randomBid, Curr2, empty_clash);
 
-        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 3); //number of passes
+        randomBidId = randomBidGen(rng)%B;
+        randomBid = allBids[randomBidId];
+        Types::Price_Bids clash2 = checkClashBidwithState(randomBid,Curr2);
+        while (clash2.second.size() != 0){
+            randomBidId = randomBidGen(rng)%B;
+            randomBid = allBids[randomBidId];
+            clash2 = checkClashBidwithState(randomBid,Curr2);
+        }
+        addBidtoState(randomBid, Curr2, clash2);
+
+        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 4); //number of passes
         if (Curr2.Profit > BestState.Profit)
             BestState = Curr2;
         // outfile << 
@@ -98,8 +108,8 @@ void Restart_Hill()
             break;
         }
     }
-    outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
-    outfile << "Profit : " << BestState.Profit << std::endl;
+    //outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
+    std::cout << "Profit : " << BestState.Profit << std::endl;
 }
 
 #endif

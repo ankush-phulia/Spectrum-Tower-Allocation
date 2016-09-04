@@ -21,12 +21,12 @@ int main()
 
     Start_Time = time(0);
     //take input file as argument
-    std::string infile = "/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/3.txt";
+    std::string infile = "16.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("/home/ankush/Desktop/COL 333 C++/Assignment_1_Local_Search/output1.txt");
-    outfile << f_in.is_open() << std::endl;
+    outfile.open("output.txt");
+    //outfile << f_in.is_open() << std::endl;
     Avg_regions = 0 ;
     Max_regions = 0 ;
 
@@ -34,7 +34,7 @@ int main()
     {
         f_in >> Time;
         f_in >> M >> B >> C;
-        outfile << M << " " <<  B << " " << C << std::endl;
+        std::cout << M << " " <<  B << " " << C << std::endl;
         //std::unordered_map<int, Bid> X;
         Company_Bids = std::vector<std::set<Bid> > (C);
         allBids = std::vector<Bid> (B);
@@ -91,7 +91,7 @@ int main()
         //outfile << getCompanyWithMostBids(Company_Bids,C) << '\n' ;
         Start = 0;
 
-        outfile << Curr.Profit << std::endl;
+        //outfile << Curr.Profit << std::endl;
 //        while (Start < B)
 //        {
 //            State ith = HillClimb();
@@ -106,7 +106,7 @@ int main()
 
         Restart_Hill3();
         time_t taken3 = time(0) - Start_Time;
-        outfile << "Time taken : " << taken3 << std::endl;
+        std::cout << "Time taken : " << taken3 << std::endl;
     }
     return 0;
 }

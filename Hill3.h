@@ -25,7 +25,7 @@ void Restart_Hill3()
     // RANDOM RESTART FOR NOOB LS:
     State BestState;
     BestState.Profit = 0;
-    for (int i = 0 ; i < 3*C ; i ++)
+    for (int i = 0 ; i < 4*C ; i ++) //number of restarts
     {
         State Curr2;
         Curr2.Profit = 0;
@@ -43,19 +43,29 @@ void Restart_Hill3()
         
         addBidtoState(randomBid, Curr2, empty_clash);
 
+        randomBidId = randomBidGen(rng)%B;
+        randomBid = allBids[randomBidId];
+        Types::Price_Bids clash2 = checkClashBidwithState(randomBid,Curr2);
+        while (clash2.second.size() != 0){
+            randomBidId = randomBidGen(rng)%B;
+            randomBid = allBids[randomBidId];
+            clash2 = checkClashBidwithState(randomBid,Curr2);
+        }
+        addBidtoState(randomBid, Curr2, clash2);
+
         int passes = 10;
         if  ((B/C)>=3 && 5>(B/C)){
-            passes = 2*(B/C)-1;
+            passes = 2*(B/C) + 1;
         }
         else if ((B/C)<=2 ){
-            passes = 3*(B/C) + 1;
+            passes = 3*(B/C) + 3;
         }
         else{
             if (C>=5){
-                passes = 6;
+                passes = 7;
             }
             else{
-                passes = 4;
+                passes = 5;
             }
         }
 
@@ -70,10 +80,16 @@ void Restart_Hill3()
         }
         //outfile << "\n \n \n";
     }
-    outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
-    outfile << "Profit : " << BestState.Profit << std::endl;
-//    for (int i = 0 ; i < C ; i ++)
-//        outfile << BestState.Bids_Company[i] << std::endl;
+    //outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
+    std::cout << "Profit : " << BestState.Profit << std::endl;
+    for (int i = 0 ; i < C ; i ++){
+        int k = BestState.Bids_Company[i];
+        if (k!=-1){
+            outfile << k << " ";
+        }
+    }
+    outfile << "#";
+
 }
 
 #endif
