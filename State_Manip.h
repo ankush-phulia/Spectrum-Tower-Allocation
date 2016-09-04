@@ -79,7 +79,9 @@ void deletandAdd(Bid b, Types::Price_Bids &clash, State &s){
     }
 }
 
-bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash)
+
+
+bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash, bool region)
 {
     // update State.
     // outfile << "Add called \n";
@@ -98,27 +100,14 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash)
         //compare the costs of bid andclashing states
         // WORKS GOOD ONLY IF EACH BID HAS LOTSSS OF REGIONS. -> check avg!!! TODO
         int regs_bid = b.Regions.size();
-        if(clash.second.first < b.Price && regs_bid <= 1.5*clash.first) {
+        if(clash.second.first < b.Price) {
             //remove clashing states and add the new one
             deletandAdd(b,clash,s);
             return true;
         }
-        else if(b.Price >= clash.first*0.9 && regs_bid <= 1.85*clash.first){ //multiplication factor
+        else if(b.Price >= clash.second.first*0.8){ //multiplication factor
             //randomly chose one
             double random = ((double) rand() / (RAND_MAX));
-            if (random >= 0.52) //probability factor
-            {
-                deletandAdd(b,clash,s);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else if (b.Price >= clash.first*0.8 && regs_bid <= 1.8*clash.first)
-        {
-            double random = ((double) rand() / (RAND_MAX)) ;
             if (random >= 0.6) //probability factor
             {
                 deletandAdd(b,clash,s);
@@ -127,8 +116,23 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash)
             else
             {
                 return false;
+            }
+        }
+        else if (b.Price >= clash.second.first*0.65 && regs_bid <= 0.8*clash.first)
+        {
+            double random = ((double) rand() / (RAND_MAX));
+            if (random >= 0.9997 && region) //probability factor
+            {
+                std::cout << "Taking the move! \n";
+                deletandAdd(b,clash,s);
+                return true;
+            }
+            else
+            {
+                return false;
             }  
         }
+        return false;
     }
 }
 

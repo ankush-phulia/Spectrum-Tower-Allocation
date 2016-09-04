@@ -15,11 +15,11 @@
 #include <limits.h>
 #include <ctime>
 #include <thread>
-#include <future>
 
 int Start;
 extern double Time;
 extern int M,B,C;
+// extern std::mutex MLock;
 
 
 struct Bid{
@@ -53,6 +53,7 @@ namespace Types
     typedef std::vector<std::set<Bid> > Vec_of_Maps;   // company to set of Bid IDs.
     typedef std::pair<int, std::pair<int,std::unordered_set<int> > > Price_Bids;
 }
+
 extern Types::Vec_of_Maps Company_Bids;
 extern std::vector<Bid> allBids;
 extern std::vector<Bid> Sorted_Bids;

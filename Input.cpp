@@ -6,6 +6,7 @@
 // NOT NEEDED?
 double Time;
 int M,B,C;
+// std::mutex MLock;
 
 Types::Vec_of_Maps Company_Bids;
 std::vector<Bid> allBids;
@@ -21,11 +22,11 @@ int main()
 
     Start_Time = time(0);
     //take input file as argument
-    std::string infile = "18.txt";
+    std::string infile = "5.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("output.txt");
+    outfile.open("output2.txt");
     //outfile << f_in.is_open() << std::endl;
     Avg_regions = 0 ;
     Max_regions = 0 ;
@@ -34,7 +35,7 @@ int main()
     {
         f_in >> Time;
         f_in >> M >> B >> C;
-        std::cout << M << " " <<  B << " " << C << std::endl;
+        outfile << M << " " <<  B << " " << C << std::endl;
         //std::unordered_map<int, Bid> X;
         Company_Bids = std::vector<std::set<Bid> > (C);
         allBids = std::vector<Bid> (B);
@@ -116,57 +117,49 @@ int main()
 //                Curr = ith;
 //            Start += 1;
 //        }
-        Restart_Hill();
+        std::vector<State> Start (4);
+        for (int i = 0 ; i < 4 ; i ++)
+            Start[i].Profit = 0;
+        std::thread t1(Restart_Hill, std::ref(Start[0]));
+        // std::thread t2(Restart_Hill, std::ref(Start[1]));
+        std::thread t3(Restart_Hill3, std::ref(Start[2]));
+        std::thread t4(Restart_Hill3, std::ref(Start[3]));
+
+        t1.join();
+        // t2.join();
+        t3.join();
+        t4.join();
+
         time_t end_Time = time(0);
         time_t taken = end_Time - Start_Time;
         outfile << "Time taken : " << taken << std::endl;
-        // outfile << "Calling Hill3 \n";
-        // Restart_Hill3();
-        // time_t taken3 = time(0) - Start_Time;
-        // outfile << "Time taken : " << taken3 << std::endl;
 
-        std::future<State> parallel_process[4];
-        //Launch a group of processes
-        for (int i = 0; i < 4; i++) {
-            //call restart hill in each
-            //SOME ERROR OVER HERE
-            parallel_process[i] = std::async(std::launch::async, Restart_Hill3);;
-        }
 
         //get the values from each
-        State BestStates[4];
-        for (int i = 0; i < 4; i++){
-            BestStates[i] = parallel_process[i].get();
-        }
 
-//        //join all of them
-//        for (int i = 0; i < 4; i++) {
-//            parallel_process[i].join();
-//        }
 
-        //choose best out of them
-        State bestestState = BestStates[0];
-        for (int i = 1;i<4;i++){
-            if (BestStates[i].Profit>bestestState.Profit){
-                bestestState = BestStates[i];
-            }
+        State bestestState = Start[0];
+        for (int i = 1 ; i < 4; i ++)
+        {
+            if (bestestState.Profit < Start[i].Profit)
+                bestestState = Start[i];
         }
 
         std::cout << bestestState.Profit << std::endl;
         //print the result
         for (int i = 0 ; i < C ; i ++){
             int k = bestestState.Bids_Company[i];
-            if (k!=-1){
+            if (k != -1){
                 outfile << k << " ";
             }
         }
         outfile << "#";
 
-        //happy debugging lols
+        //happy debugging lols HEHE
 
         //Restart_Hill3();
         time_t taken3 = time(0) - Start_Time;
-        std::cout << "Time taken : " << taken3 << std::endl;
+        std::cout << "Total Time taken : " << taken3 << std::endl;
     }
     return 0;
 }
