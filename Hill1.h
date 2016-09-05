@@ -82,7 +82,8 @@ State HillClimb(State &s, int i,int cnt, int C, int passes, std::mt19937 & rng){
             if (random <= 0.008)
                 break;
         }
-        long profit = b.Price - clash.second.first;
+        // long profit = b.Price - clash.second.first;
+        long profit = f(b,clash);
         if (profit >= max_profit)
         {
             max_profit = profit;
@@ -121,7 +122,7 @@ State HillClimb(State &s, int i,int cnt, int C, int passes, std::mt19937 & rng){
     //get a random double
     // std::cout << random << std::endl;
     // outfile << "Company " << i << "Profit : " << s.Profit << std::endl;
-    if ((time(0) - Start_Time > (60*Time - 11))  || cnt >= C*passes){
+    if ((time(0) - Start_Time > (60*Time - 3))  || cnt >= C*passes){
         return s;
     }
    // else if (cnt>=2*C || cnt < C){
@@ -140,7 +141,9 @@ void Restart_Hill(State & BestState)
     rng.seed(std::random_device()());
     std::cout << (60*Time) << std::endl;
 
-    for (int i = 0 ; i < 30*C ; i ++)
+    int i = 0;
+    // int last = 0;
+    while ((time(0) - Start_Time < 60*M - 3) && (i < 7*B/2))
     {
         State Curr2;
         Curr2.Profit = 0;
@@ -157,23 +160,25 @@ void Restart_Hill(State & BestState)
         Types::Price_Bids empty_clash = std::make_pair(0, std::make_pair(0, empty_set));
         addBidtoState(randomBid, Curr2, empty_clash, true);
 
-        // randomBidId = randomBidGen(rng)%B;
-        // randomBid = allBids[randomBidId];
-        // Types::Price_Bids clash2 = checkClashBidwithState(randomBid,Curr2);
-        // while (clash2.second.size() != 0){
-        //     randomBidId = randomBidGen(rng)%B;
-        //     randomBid = allBids[randomBidId];
-        //     clash2 = checkClashBidwithState(randomBid,Curr2);
-        // }
-        // addBidtoState(randomBid, Curr2, clash2);
+        randomBidId = randomBidGen(rng)%B;
+        randomBid = allBids[randomBidId];
+        Types::Price_Bids clash2 = checkClashBidwithState(randomBid,Curr2);
+        while (clash2.second.second.size() != 0){
+            randomBidId = randomBidGen(rng)%B;
+            randomBid = allBids[randomBidId];
+            clash2 = checkClashBidwithState(randomBid,Curr2);
+        }
+        addBidtoState(randomBid, Curr2, clash2, true);
 
-        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 4, rng); //number of passes
+        Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 5, rng); //number of passes
         if (Curr2.Profit > BestState.Profit)
             BestState = Curr2;
         std::cout << "Hill 1 :: " << Curr2.Profit << " Best yet of Hill1 : " << BestState.Profit << std::endl;
         // outfile << 
         // outfile << "\n \n \n";
-        if ((time(0) - Start_Time > (60*M - 9)))
+        i ++;
+        // if ()
+        if ((time(0) - Start_Time > (60*M - 2.5)))
             break;
     }
     std::cout << " >>>>>> BESTSTATE 1 IS  >>>>>>>> \n";

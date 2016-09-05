@@ -78,14 +78,14 @@ void Restart_Hill3(State & best)
             passes = 2*(B/C) + 1;
         }
         else if ((B/C)<=2 ){
-            passes = 3*(B/C) + 3;
+            passes = 3*(B/C) + 4;
         }
         else{
             if (C>=5){
                 passes = 7;
             }
             else{
-                passes = 5;
+                passes = 6;
             }
         }
         // outfile << "Start : " << randomBidId << std::endl;

@@ -15,6 +15,7 @@
 #include <limits.h>
 #include <ctime>
 #include <thread>
+#include <cmath>
 
 int Start;
 extern double Time;
@@ -37,6 +38,7 @@ struct Bid{
             return Price >= str.Price;
         }
         //return (Price) >= (str.Price);
+        // return (Regions.size()/pow(Price, 0.1)) < (str.Regions.size()/pow(str.Price,0.1));
     }
 
 };

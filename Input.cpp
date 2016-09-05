@@ -2,6 +2,8 @@
 #include "State_Manip.h"
 #include "Hill1.h"
 #include "Hill3.h"
+#include "Hill4.h"
+#include "Hill5.h"
 
 // NOT NEEDED?
 double Time;
@@ -22,14 +24,14 @@ int main()
 
     Start_Time = time(0);
     //take input file as argument
-    std::string infile = "5.txt";
+    std::string infile = "3.txt";
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("output2.txt");
+    outfile.open("output.txt");
     //outfile << f_in.is_open() << std::endl;
-    Avg_regions = 0 ;
-    Max_regions = 0 ;
+    Avg_regions = 0;
+    Max_regions = 0;
 
     if (f_in.is_open())
     {
@@ -87,7 +89,7 @@ int main()
 
         }
         // all Bids parsed
-        // outfile << "Input parsed \n";
+        std::cout << "Input parsed \n";
         std::sort(Sorted_Bids.begin(),Sorted_Bids.end());
         //outfile << getCompanyWithMostBids(Company_Bids,C) << '\n' ;
         Start = 0;
@@ -120,15 +122,15 @@ int main()
         std::vector<State> Start (4);
         for (int i = 0 ; i < 4 ; i ++)
             Start[i].Profit = 0;
-        std::thread t1(Restart_Hill, std::ref(Start[0]));
+        std::thread t1(Restart_Hill3, std::ref(Start[0]));
         // std::thread t2(Restart_Hill, std::ref(Start[1]));
-        std::thread t3(Restart_Hill3, std::ref(Start[2]));
-        std::thread t4(Restart_Hill3, std::ref(Start[3]));
+        std::thread t3(Restart_Hill, std::ref(Start[2]));
+        // std::thread t4(Restart_Hill3, std::ref(Start[3]));
 
         t1.join();
         // t2.join();
         t3.join();
-        t4.join();
+        // t4.join();
 
         time_t end_Time = time(0);
         time_t taken = end_Time - Start_Time;
@@ -160,6 +162,10 @@ int main()
         //Restart_Hill3();
         time_t taken3 = time(0) - Start_Time;
         std::cout << "Total Time taken : " << taken3 << std::endl;
+        if (checkValidity(bestestState))
+            std::cout << "YAYYYY!!";
+        else
+            std::cout << "KATTA!!";
     }
     return 0;
 }

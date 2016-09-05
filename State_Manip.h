@@ -99,29 +99,27 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash, bool region)
     else{
         //compare the costs of bid andclashing states
         // WORKS GOOD ONLY IF EACH BID HAS LOTSSS OF REGIONS. -> check avg!!! TODO
+            double random = ((double) rand() / (RAND_MAX));
         int regs_bid = b.Regions.size();
         if(clash.second.first < b.Price) {
             //remove clashing states and add the new one
-            deletandAdd(b,clash,s);
-            return true;
+            if (b.Regions.size() <= 1.6*clash.first || random <= 0.98)
+            {
+                deletandAdd(b,clash,s);
+                return true;                
+            }
+            else
+                return false;
         }
         else if(b.Price >= clash.second.first*0.8){ //multiplication factor
             //randomly chose one
-            double random = ((double) rand() / (RAND_MAX));
-            if (random >= 0.6) //probability factor
-            {
                 deletandAdd(b,clash,s);
                 return true;
-            }
-            else
-            {
-                return false;
-            }
         }
-        else if (b.Price >= clash.second.first*0.65 && regs_bid <= 0.8*clash.first)
+        else if (b.Price >= clash.second.first*0.65 && regs_bid <= 0.9*clash.first)
         {
             double random = ((double) rand() / (RAND_MAX));
-            if (random >= 0.9997 && region) //probability factor
+            if (random >= 0.9993 && region) //probability factor
             {
                 std::cout << "Taking the move! \n";
                 deletandAdd(b,clash,s);
@@ -134,6 +132,38 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash, bool region)
         }
         return false;
     }
+}
+
+bool checkValidity(State & s)
+{
+    std::vector<bool> Regions (M , false);
+    std::vector<bool> Company (C, false);
+    for (int i = 0 ; i < C ; i ++)
+    {
+        if (s.Bids_Company[i] != -1)
+        {
+            Bid b = allBids[s.Bids_Company[i]];
+            if (Company[b.Company])
+                return false;
+            else
+            {
+                Company[b.Company] = true;
+                for (auto it = b.Regions.begin() ; it != b.Regions.end() ; it ++)
+                {
+                    if (Regions[*it])
+                        return false;
+                    else
+                        Regions[*it] = true;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+long f(Bid b, Types::Price_Bids clash)
+{
+    return (b.Price - 0.7*clash.second.first)*pow((0.5 + (clash.first - b.Regions.size())/M) , 0.2);
 }
 
 
