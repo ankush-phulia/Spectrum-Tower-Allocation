@@ -1,9 +1,8 @@
 #include "structs.h"
 #include "State_Manip.h"
 #include "Hill1.h"
+#include "Hill2.h"
 #include "Hill3.h"
-#include "Hill4.h"
-#include "Hill5.h"
 
 // NOT NEEDED?
 double Time;
@@ -19,17 +18,18 @@ int Avg_regions, Max_regions;
 time_t Start_Time;
 // approach 2 -> 1 company ki keep adding/swapping
 
-int main()
+int main(int argc, char const *argv[])
 {
 
     Start_Time = time(0);
     //take input file as argument
-    std::string infile = "3.txt";
+    std::string infile = argv[1];
     std::ifstream f_in;
     f_in.open(infile);
 
-    outfile.open("output.txt");
+    outfile.open(argv[2]);
     //outfile << f_in.is_open() << std::endl;
+    std::cout << infile << std::endl;
     Avg_regions = 0;
     Max_regions = 0;
 
@@ -37,7 +37,7 @@ int main()
     {
         f_in >> Time;
         f_in >> M >> B >> C;
-        outfile << M << " " <<  B << " " << C << std::endl;
+        // outfile << M << " " <<  B << " " << C << std::endl;
         //std::unordered_map<int, Bid> X;
         Company_Bids = std::vector<std::set<Bid> > (C);
         allBids = std::vector<Bid> (B);
@@ -89,52 +89,27 @@ int main()
 
         }
         // all Bids parsed
-        std::cout << "Input parsed \n";
+        //std::cout << "Input parsed \n";
         std::sort(Sorted_Bids.begin(),Sorted_Bids.end());
         //outfile << getCompanyWithMostBids(Company_Bids,C) << '\n' ;
         Start = 0;
-        // outfile << Sorted_Bids[0].Price;
-        // ABSOLUTE NOOB:
-        // for (int i = 0 ; i < B ; i ++)
-        // {
-        //     outfile << "Step " << i << std::endl;
-        //     Bid ith = allBids[i];
-        //     // outfile << ith.Company << " Company, " << ith.Price << " price of ith bid " << i << std::endl;
-        //     Price_Bids clash = checkClashBidwithState(ith, Curr);
-        //     addBidtoState((Bid)ith, Curr, clash);
-        //     // addBidtoState((Bid)(allBids[i].get()), Curr);            
-        //     // for (int i = 0 ; i < C  ; i ++)
-        //     // {
-        //     //     // if (Curr.Bids_Company[i] != -1)
-        //     //         outfile << Curr.Bids_Company[i] << " Bid, ";
-        //     // }
-        //     outfile << Curr.Profit << " Cost after Step " << i << " over! \n";
-        //     // outfile << "Step " << i ;
-        // }
-        // outfile << Curr.Profit << std::endl;
-//        while (Start < B)
-//        {
-//            State ith = HillClimb();
-//            if (ith.Profit > Curr.Profit)
-//                Curr = ith;
-//            Start += 1;
-//        }
+
         std::vector<State> Start (4);
         for (int i = 0 ; i < 4 ; i ++)
             Start[i].Profit = 0;
-        std::thread t1(Restart_Hill3, std::ref(Start[0]));
-        // std::thread t2(Restart_Hill, std::ref(Start[1]));
-        std::thread t3(Restart_Hill, std::ref(Start[2]));
-        // std::thread t4(Restart_Hill3, std::ref(Start[3]));
+        std::thread t1(Restart_Hill, std::ref(Start[0]));
+        std::thread t2(Restart_Hill2, std::ref(Start[1]));
+        std::thread t3(Restart_Hill3, std::ref(Start[2]));
+        std::thread t4(Restart_Hill3, std::ref(Start[3]));
 
         t1.join();
-        // t2.join();
+        t2.join();
         t3.join();
-        // t4.join();
+        t4.join();
 
         time_t end_Time = time(0);
         time_t taken = end_Time - Start_Time;
-        outfile << "Time taken : " << taken << std::endl;
+        // outfile << "Time taken : " << taken << std::endl;
 
 
         //get the values from each
@@ -155,17 +130,17 @@ int main()
                 outfile << k << " ";
             }
         }
-        outfile << "#";
+        outfile << "#" << std::endl;
 
         //happy debugging lols HEHE
 
         //Restart_Hill3();
         time_t taken3 = time(0) - Start_Time;
         std::cout << "Total Time taken : " << taken3 << std::endl;
-        if (checkValidity(bestestState))
+        /*if (checkValidity(bestestState))
             std::cout << "YAYYYY!!";
         else
-            std::cout << "KATTA!!";
+            std::cout << "KATTA!!";*/
     }
     return 0;
 }

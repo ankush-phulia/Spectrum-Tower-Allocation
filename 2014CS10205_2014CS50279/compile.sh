@@ -1,0 +1,1 @@
+g++ -std=c++11 -g -o2 Input.cpp -o hillclimb -pthread

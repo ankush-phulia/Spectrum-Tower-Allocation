@@ -4,8 +4,7 @@
 
 #include "structs.h"
 
-Types::Price_Bids checkClashBidwithState(Bid b,State &s)
-{
+Types::Price_Bids checkClashBidwithState(Bid b,State &s){
 //    returns list of bids in state with which b clashes + total cost of clsshing bids.
 	std::set<int> bid_regs = b.Regions;
 	std::unordered_set<int> bids_clashing;
@@ -99,12 +98,11 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash, bool region)
     else{
         //compare the costs of bid andclashing states
         // WORKS GOOD ONLY IF EACH BID HAS LOTSSS OF REGIONS. -> check avg!!! TODO
-            double random = ((double) rand() / (RAND_MAX));
+        double random = ((double) rand() / (RAND_MAX));
         int regs_bid = b.Regions.size();
         if(clash.second.first < b.Price) {
             //remove clashing states and add the new one
-            if (b.Regions.size() <= 1.6*clash.first || random <= 0.98)
-            {
+            if (/*b.Regions.size() <= 1.6*clash.first ||*/ random > 0.1){
                 deletandAdd(b,clash,s);
                 return true;                
             }
@@ -113,15 +111,23 @@ bool addBidtoState(Bid b,State &s, Types::Price_Bids &clash, bool region)
         }
         else if(b.Price >= clash.second.first*0.8){ //multiplication factor
             //randomly chose one
+        	double random = ((double) rand() / (RAND_MAX));
+            if (random >= 0.6) //probability factor
+            {
                 deletandAdd(b,clash,s);
                 return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else if (b.Price >= clash.second.first*0.65 && regs_bid <= 0.9*clash.first)
         {
             double random = ((double) rand() / (RAND_MAX));
             if (random >= 0.9993 && region) //probability factor
             {
-                std::cout << "Taking the move! \n";
+                //std::cout << "Taking the move! \n";
                 deletandAdd(b,clash,s);
                 return true;
             }
@@ -163,7 +169,7 @@ bool checkValidity(State & s)
 
 long f(Bid b, Types::Price_Bids clash)
 {
-    return (b.Price - 0.7*clash.second.first)*pow((0.5 + (clash.first - b.Regions.size())/M) , 0.2);
+    return (b.Price - 0.9*clash.second.first)*pow((0.5 + (clash.first - b.Regions.size())/M) , 0.1);
 }
 
 

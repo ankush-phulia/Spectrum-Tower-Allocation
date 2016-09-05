@@ -35,7 +35,7 @@ struct Bid{
             return (Regions.size()) < (str.Regions.size());
         }
         else{
-            return Price >= str.Price;
+            return Price > str.Price;
         }
         //return (Price) >= (str.Price);
         // return (Regions.size()/pow(Price, 0.1)) < (str.Regions.size()/pow(str.Price,0.1));
