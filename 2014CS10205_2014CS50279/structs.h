@@ -20,6 +20,7 @@
 int Start;
 extern double Time;
 extern int M,B,C;
+extern bool Over;
 // extern std::mutex MLock;
 
 

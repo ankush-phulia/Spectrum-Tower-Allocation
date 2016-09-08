@@ -1,11 +1,11 @@
 
-#ifndef HILL3_H
-#define HILL3_H
+#ifndef HILL4_H
+#define HILL4_H
 
 #include "structs.h"
 #include "State_Manip.h"
 
-State HillClimb3(State &s, int i, int cnt, int passes, std::mt19937 & rng){
+State HillClimb4(State &s, int i, int cnt, int passes, std::mt19937 & rng){
     // start state determined by var State
     if (cnt > passes*B){
         return s;
@@ -18,12 +18,12 @@ State HillClimb3(State &s, int i, int cnt, int passes, std::mt19937 & rng){
         bool chk2 = addBidtoState(b,s,clash, false);
         // if (cnt%B == 0)
         //     std::cout << "YO" << s.Profit << std::endl;
-        return HillClimb3(s, (i+1)%B, cnt+1, passes, rng);
+        return HillClimb4(s, (i+1)%B, cnt+1, passes, rng);
     }
     // std::cout << "Pass 1 : Profit->" << s.Profit << std::endl;
-    }
+}
 
-void Restart_Hill3(State & best)
+void Restart_Hill4(State & best)
 {
     // MLock.lock();
     // RANDOM RESTART FOR NOOB LS:
@@ -33,9 +33,9 @@ void Restart_Hill3(State & best)
 
     int i = 0;
     // int last = 0;
-    while ((time(0) - Start_Time < 60*Time - 2) && !Over)
+    while ((time(0) - Start_Time < 60*Time - 2)  && !Over)
     {
-    	//std::cout << "3: " << time(0) - Start_Time;
+    	//std::cout << "4: " << time(0) - Start_Time;
     	//std::cout << " " << 60*Time - 3 << std::endl;
         State Curr2;
         Curr2.Profit = 0;
@@ -74,11 +74,11 @@ void Restart_Hill3(State & best)
                 passes = 7 + 1;
             }
             else{
-                passes = 6 + 2 ;
+                passes = 6 + 1 ;
             }
         }
         // outfile << "Start : " << randomBidId << std::endl;
-        Curr2 = HillClimb3(Curr2 , (i+1)%B, 0, passes, rng);
+        Curr2 = HillClimb4(Curr2 , (i+1)%B, 0, passes, rng);
         // std::cout << Curr2.Profit << std::endl;
         if (Curr2.Profit > best.Profit)
         {
@@ -104,7 +104,7 @@ void Restart_Hill3(State & best)
 //    }
 //    outfile << "#";
     // return BestState;
-    //std::cout << "Hill 3 ended" << std::endl;
+    //std::cout << "Hill 4 ended" << std::endl;
 }
 
 #endif

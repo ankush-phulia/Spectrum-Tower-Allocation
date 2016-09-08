@@ -97,8 +97,10 @@ void Restart_Hill(State & BestState)
 
     int i = 0;
     // int last = 0;
-    while ((time(0) - Start_Time < 60*Time - 2))
+    while ((time(0) - Start_Time < 60*Time - 2) && !Over)
     {
+    	//std::cout << "1: " << time(0) - Start_Time;
+    	//std::cout << " " << 60*Time - 3 << std::endl;
         State Curr2;
         Curr2.Profit = 0;
         Curr2.Bids_Company = std::vector<int> (C,-1);
@@ -127,32 +129,36 @@ void Restart_Hill(State & BestState)
         Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 5, rng); //number of passes
         if (Curr2.Profit > BestState.Profit)
             BestState = Curr2;
-        //std::cout << "Hill 1 :: " << Curr2.Profit << " Best yet of Hill1 : " << BestState.Profit << std::endl;
+        std::cout << "Hill 1 :: " << Curr2.Profit << " Best yet of Hill1 : " << BestState.Profit << std::endl;
+        /*if (time(0)%60 ==0){
+			std::cout << "Hill 1 :: " << Curr2.Profit << " Best yet of Hill1 : " << BestState.Profit << std::endl;
+        }*/
         // outfile << 
         // outfile << "\n \n \n";
         i ++;
         // if ()
-        if ((time(0) - Start_Time > (60*Time - 1.5))){
+        /*if ((time(0) - Start_Time > (60*Time - 2.5))){
             //std::cout << "YOOO" << std::endl;
             break;            
-        }
+        }*/
     }
     //std::cout << " >>>>>> BESTSTATE 1 IS  >>>>>>>> \n";
     //std::cout << "Profit : " << BestState.Profit << std::endl;
     // int p = 0;
-    for (int i = 0 ; i < C ; i ++)
-    {
-        int x = BestState.Bids_Company[i];
-        if (x > -1 && x < B)
-        {
-            std::cout << BestState.Bids_Company[i] << " ";
-            // p += allBids[x].Price;       
-        }
-    }
+    // for (int i = 0 ; i < C ; i ++)
+    // {
+    //     int x = BestState.Bids_Company[i];
+    //     if (x > -1 && x < B)
+    //     {
+    //         std::cout << BestState.Bids_Company[i] << " ";
+    //         // p += allBids[x].Price;       
+    //     }
+    // }
     //std::cout << "#";
     // outfile << "\n Profit P1 : " << p << std::endl;
     
     //outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
+    //std::cout << "Hill 1 ended" << std::endl;
 }
 
 #endif

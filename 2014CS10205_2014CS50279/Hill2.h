@@ -1,4 +1,3 @@
-
 #ifndef HILL2_H
 #define HILL2_H
 
@@ -44,8 +43,10 @@ void Restart_Hill2(State & best)
 
     int i = 0;
     // int last = 0;
-    while ((time(0) - Start_Time < 60*Time - 2))
+    while ((time(0) - Start_Time < 60*Time - 2)  && !Over)
     {
+    	//std::cout << "2: " << time(0) - Start_Time;
+    	//std::cout << " " << 60*Time - 3 << std::endl;
         State Curr2;
         Curr2.Profit = 0;
         Curr2.Bids_Company = std::vector<int> (C,-1);
@@ -93,15 +94,17 @@ void Restart_Hill2(State & best)
         {
             best = Curr2;
         }
-        //std::cout << "Hill 2 :: " << Curr2.Profit << " Best yet of Hill2 : " << best.Profit << std::endl;
+			std::cout << "Hill 2 :: " << Curr2.Profit << " Best yet of Hill2 : " << best.Profit << std::endl;
+        /*if (time(0)%60 ==0){
+        }*/
         i ++;
-        if ((time(0) - Start_Time > (60*Time - 1.5))){
+        /*if ((time(0) - Start_Time > (60*Time - 2.5))){
             break;
-        }
+        }*/
         //outfile << "\n \n \n";
     }
     //outfile << " >>>>>> BESTSTATE IS  >>>>>>>> \n";
-    //std::cout << "BESTSTATE 3 Profit : " << best.Profit << std::endl;
+    std::cout << "BESTSTATE 3 Profit : " << best.Profit << std::endl;
 //    for (int i = 0 ; i < C ; i ++){
 //        int k = BestState.Bids_Company[i];
 //        if (k!=-1){
@@ -110,6 +113,7 @@ void Restart_Hill2(State & best)
 //    }
 //    outfile << "#";
     // return BestState;
+   // std::cout << "Hill 2 ended" << std::endl;
 }
 
 #endif

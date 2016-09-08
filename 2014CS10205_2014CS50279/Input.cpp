@@ -3,6 +3,7 @@
 #include "Hill1.h"
 #include "Hill2.h"
 #include "Hill3.h"
+#include "Hill4.h"
 
 // NOT NEEDED?
 double Time;
@@ -16,11 +17,12 @@ std::ofstream outfile;
 std::mt19937 rng;
 int Avg_regions, Max_regions;
 time_t Start_Time;
+bool Over;
 // approach 2 -> 1 company ki keep adding/swapping
 
 int main(int argc, char const *argv[])
 {
-
+    Over = false;
     Start_Time = time(0);
     //take input file as argument
     std::string infile = argv[1];
@@ -100,15 +102,25 @@ int main(int argc, char const *argv[])
         std::thread t1(Restart_Hill, std::ref(Start[0]));
         std::thread t2(Restart_Hill2, std::ref(Start[1]));
         std::thread t3(Restart_Hill3, std::ref(Start[2]));
-        std::thread t4(Restart_Hill3, std::ref(Start[3]));
+        std::thread t4(Restart_Hill4, std::ref(Start[3]));
 
-        t1.join();
+/*        t1.join();
         t2.join();
         t3.join();
-        t4.join();
+        t4.join();*/
 
-        time_t end_Time = time(0);
-        time_t taken = end_Time - Start_Time;
+        while (time(0) - Start_Time < 60*Time - 2)
+        {
+            
+        }
+        Over = true;
+/*        t1.~thread();
+        t2.~thread();
+        t3.~thread();
+        t4.~thread();*/
+
+        //time_t end_Time = time(0);
+        //time_t taken = end_Time - Start_Time;
         // outfile << "Time taken : " << taken << std::endl;
 
 
@@ -141,6 +153,7 @@ int main(int argc, char const *argv[])
             std::cout << "YAYYYY!!";
         else
             std::cout << "KATTA!!";*/
+        exit(0);
     }
     return 0;
 }
