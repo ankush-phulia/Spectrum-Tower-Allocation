@@ -15,6 +15,10 @@ State HillClimb(State &s, int i,int cnt, int C, int passes, std::mt19937 & rng){
     Types::Price_Bids best_clash;
     // outfile << "Company " << i << std::endl;
     int noBids = bidsofCompany.size();
+
+    // IF NO BIDS THEN DONT DO ANYTHING :----->
+
+    if (noBids == 0) return s;
     std::vector<int> bidsofCompanyVec (noBids);
     int j = 0;
     double random = ((double) rand() / (RAND_MAX));
@@ -129,7 +133,7 @@ void Restart_Hill(State & BestState)
         Curr2 = HillClimb(Curr2 , (i+1)%C , 0 , C, 5, rng); //number of passes
         if (Curr2.Profit > BestState.Profit)
             BestState = Curr2;
-        std::cout << "Hill 1 :: " << Curr2.Profit << " Best yet of Hill1 : " << BestState.Profit << std::endl;
+        // std::cout << "Hill 1 :: " << Curr2.Profit << " Best yet of Hill1 : " << BestState.Profit << std::endl;
         /*if (time(0)%60 ==0){
 			std::cout << "Hill 1 :: " << Curr2.Profit << " Best yet of Hill1 : " << BestState.Profit << std::endl;
         }*/

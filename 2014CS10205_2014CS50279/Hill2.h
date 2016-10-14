@@ -94,7 +94,7 @@ void Restart_Hill2(State & best)
         {
             best = Curr2;
         }
-			std::cout << "Hill 2 :: " << Curr2.Profit << " Best yet of Hill2 : " << best.Profit << std::endl;
+			// std::cout << "Hill 2 :: " << Curr2.Profit << " Best yet of Hill2 : " << best.Profit << std::endl;
         /*if (time(0)%60 ==0){
         }*/
         i ++;

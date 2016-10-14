@@ -87,7 +87,7 @@ void Restart_Hill3(State & best)
         /*if (time(0)%60 ==0){
 			std::cout << "Hill 3 :: " << Curr2.Profit << " Best yet of Hill3 : " << best.Profit << std::endl;
         }*/
-        //std::cout << "Hill 3 :: " << Curr2.Profit << " Best yet of Hill3 : " << best.Profit << std::endl;
+        // std::cout << "Hill 3 :: " << Curr2.Profit << " Best yet of Hill3 : " << best.Profit << std::endl;
         i ++;
         /*if ((time(0) - Start_Time > (60*Time - 2.5))){
             break;

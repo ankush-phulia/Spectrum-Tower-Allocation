@@ -134,7 +134,7 @@ int main(int argc, char const *argv[])
                 bestestState = Start[i];
         }
 
-        std::cout << bestestState.Profit << std::endl;
+        std::cout << bestestState.Profit << " : FINAL profit" << std::endl;
         //print the result
         for (int i = 0 ; i < C ; i ++){
             int k = bestestState.Bids_Company[i];
