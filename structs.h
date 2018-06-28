@@ -1,61 +1,58 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
+#include <limits.h>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
+#include <functional>
 #include <iostream>
+#include <map>
+#include <random>
+#include <set>
+#include <thread>
 #include <unordered_map>
 #include <unordered_set>
-#include <fstream>
 #include <vector>
-#include <cstdlib>
-#include <algorithm>
-#include <random>
-#include <map>
-#include <set>
-#include <functional>
-#include <limits.h>
-#include <ctime>
-#include <thread>
-#include <cmath>
 
 int Start;
 extern double Time;
-extern int M,B,C;
+extern int M, B, C;
 extern bool Over;
 // extern std::mutex MLock;
 
-
-struct Bid{
+struct Bid {
     int Bid_Id;
     int Company;
     double Price;
     std::set<int> Regions;
 
-    //to compare based on price
-    bool operator < (const Bid& str) const{
-        if ((Regions.size()) != (str.Regions.size())){
+    // to compare based on price
+    bool operator<(const Bid& str) const {
+        if ((Regions.size()) != (str.Regions.size())) {
             return (Regions.size()) < (str.Regions.size());
-        }
-        else{
+        } else {
             return Price > str.Price;
         }
-        //return (Price) >= (str.Price);
-        // return (Regions.size()/pow(Price, 0.1)) < (str.Regions.size()/pow(str.Price,0.1));
+        // return (Price) >= (str.Price);
+        // return (Regions.size()/pow(Price, 0.1)) <
+        // (str.Regions.size()/pow(str.Price,0.1));
     }
-
 };
 
-struct State{
-//    std::set<int> Bid_ids;
+struct State {
+    //    std::set<int> Bid_ids;
     int Profit;
-    std::vector<int> Bids_Company;       // size = C
+    std::vector<int> Bids_Company;      // size = C
     std::vector<int> Regions_assigned;  // size = M
 };
 
-namespace Types
-{
-    typedef std::vector<std::set<Bid> > Vec_of_Maps;   // company to set of Bid IDs.
-    typedef std::pair<int, std::pair<int,std::unordered_set<int> > > Price_Bids;
-}
+namespace Types {
+typedef std::vector<std::set<Bid> > Vec_of_Maps;  // company to set of Bid IDs.
+typedef std::pair<int, std::pair<int, std::unordered_set<int> > > Price_Bids;
+}  // namespace Types
 
 extern Types::Vec_of_Maps Company_Bids;
 extern std::vector<Bid> allBids;
