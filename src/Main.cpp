@@ -8,7 +8,6 @@
 // NOT NEEDED?
 double Time;
 int M, B, C;
-// std::mutex MLock;
 
 Types::Vec_of_Maps Company_Bids;
 std::vector<Bid> allBids;
@@ -78,18 +77,9 @@ int main(int argc, char const *argv[]) {
             // outfile << allBids[i].get().Price << " Added \n";
             Sorted_Bids[i] = xi;
 
-            // outfile << "Step " << i << std::endl;
-            // Bid ith = allBids[i].get();
-            // outfile << ith.Company << " Company, " << ith.Price << " price of
-            // ith bid " << i << std::endl; addBidtoState((Bid)ith, Curr);
-
-            // outfile << Curr.Profit << " Cost after Step " << i << " over!
-            // \n";
         }
         // all Bids parsed
-        // std::cout << "Input parsed \n";
         std::sort(Sorted_Bids.begin(), Sorted_Bids.end());
-        // outfile << getCompanyWithMostBids(Company_Bids,C) << '\n' ;
         Start = 0;
 
         std::vector<State> Start(4);
@@ -99,25 +89,11 @@ int main(int argc, char const *argv[]) {
         std::thread t3(Restart_Hill3, std::ref(Start[2]));
         std::thread t4(Restart_Hill4, std::ref(Start[3]));
 
-        /*        t1.join();
-                t2.join();
-                t3.join();
-                t4.join();*/
-
         while (time(0) - Start_Time < 60 * Time - 2) {
         }
         Over = true;
-        /*        t1.~thread();
-                t2.~thread();
-                t3.~thread();
-                t4.~thread();*/
-
-        // time_t end_Time = time(0);
-        // time_t taken = end_Time - Start_Time;
-        // outfile << "Time taken : " << taken << std::endl;
 
         // get the values from each
-
         State bestestState = Start[0];
         for (int i = 1; i < 4; i++) {
             if (bestestState.Profit < Start[i].Profit) bestestState = Start[i];
@@ -133,15 +109,9 @@ int main(int argc, char const *argv[]) {
         }
         outfile << "#" << std::endl;
 
-        // happy debugging lols HEHE
-
         // Restart_Hill3();
         time_t taken3 = time(0) - Start_Time;
         std::cout << "Total Time taken : " << taken3 << std::endl;
-        /*if (checkValidity(bestestState))
-            std::cout << "YAYYYY!!";
-        else
-            std::cout << "KATTA!!";*/
         exit(0);
     }
     return 0;
