@@ -1,10 +1,18 @@
-# Mobile Spectrum tower auction
+# Mobile Spectrum Tower Auction
 
 Allocating mobile network towers to different companies, each of which covers an area, by accepting bids(first-price) and attempting to maximise the profit by the sale
 
-## Steps to Run
+#### Running the code
 
-Move the appropriate scripts out of the "scripts" directory
+##### Compiling
 
-*Compile* using `compile.sh`  
-*Run* using  `run.sh <Input file> <Output file>`
+```bash
+bash scripts/compile.sh
+```
+
+##### Running
+
+```bash
+bash scripts/run.sh <Input file> <Output file>
+```
+
